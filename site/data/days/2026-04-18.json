@@ -1,0 +1,161 @@
+{
+  "date": "2026-04-18",
+  "title": "金融日报 2026-04-18",
+  "summary": "IMF春季旗舰报告集中抬升全球增长、债务与金融稳定警报，美联储与SEC同步释放宏观放缓和市场基础设施改革信号；霍尔木兹重开带来短线风险偏好修复。",
+  "notion_url": "https://www.notion.so/346f9553c570812a9022d674d5da4006",
+  "reportMarkdown": "## 今日重点\n- IMF《世界经济展望》将 2026 年全球增速下调至 3.1%，并预计全球通胀在 2026 年小幅回升，确认中东战争已把全球重新拖回“增长放缓 + 通胀抬头”的组合。\n- IMF《财政监测报告》称全球公债率 2025 年已升至接近 GDP 的 94%，并将在 2029 年前触及 100%，主权市场对通胀与战争冲击的再定价风险上升。\n- 美联储 3 月工业产出环比下降 0.5%，制造业环比下降 0.1%，说明美国实体部门动能开始转弱，但并未完全摆脱通胀约束。\n- 霍尔木兹海峡重新开放后，全球市场快速切回风险偏好交易：油价盘中大跌约 10%，欧美股债同步上涨，短线通胀溢价明显回落。\n## 宏观与政策\n- IMF《世界经济展望》：在假设冲突有限的基准情景下，2026 年全球增长预计降至 3.1%，2027 年为 3.2%；全球通胀 2026 年回升后才会恢复下行。影响：全球资产定价需要重新计入更持久的战争冲击，能源进口经济体和新兴市场承压更明显。\n- IMF《财政监测报告》：全球公债率将在 2029 年前达到 GDP 的 100%，且非银机构杠杆上升与美债安全溢价削弱会放大再定价。影响：长端利率和主权信用风险对新的通胀冲击更敏感。\n- 美联储工业产出：3 月工业产出环比 -0.5%，制造业环比 -0.1%，但一季度工业产出年化仍增长 2.4%。影响：美国增长动能边际回落，强化后续政策路径的不确定性。\n- FedNow 提案：美联储拟允许银行和信用社通过中介机构使用 FedNow，支持跨境支付链路中的对应行场景。影响：实时支付基础设施外延扩张，银行支付和跨境清算创新预期升温，但仍处征求意见期。\n## 市场动态\n- IMF《全球金融稳定报告》：市场目前对战争冲击的吸收仍较有序，但高杠杆非银、集中持仓和紧信用利差可能把正常波动放大成流动性压力。影响：当前“市场没坏”不等于脆弱性消失，风险仍偏向下行。\n- 路透市场快报：伊朗宣布霍尔木兹海峡在停火期内对商业船只完全开放后，全球股债上涨、油价大跌，S&P 500 和纳指再创盘中新高。影响：短线通胀溢价和加息预期被快速挤出，但交易逻辑高度依赖停火持续性。\n## 金融机构与监管\n- SEC 批准美债客户跨保证金机制：允许清算现金美债与美债期货的客户头寸实施跨保证金，并配套 FICC 与 CME 协议修订。影响：有助于降低占资、释放流动性并推进美国国债集中清算改革。\n- 路透银行业综述：美国大行一季度交易业务显著走强，但管理层继续警告高油价、地缘冲突与需求放缓会抬升后续经济风险。影响：盈利韧性仍在，信用和融资环境的尾部风险并未消失。\n## 风险提示\n- 若中东停火再次反复，油价和通胀预期可能快速反弹，当前风险偏好修复存在回撤风险。\n- IMF 对增长、金融稳定和财政三条主线同时转向保守，说明全球宏观缓冲垫正在变薄。\n- 美国工业产出回落与债务再定价风险并存，意味着“增长转弱但利率难降”的错位仍可能延续。\n- 银行业短期盈利受益于波动率，但若企业和居民部门现金流继续承压，信用成本仍有后移上升风险。\n## 后续观察点\n- 关注 4 月 28-29 日 FOMC 前后对油价回落、工业产出转弱和通胀预期变化的表态。\n- 关注 IMF 春会后主要经济体是否释放更明确的财政整固或流动性托底信号。\n- 关注 FedNow 中介机构提案的市场反馈与正式规则路径。\n- 关注 SEC 与 CFTC 后续围绕美债清算、保证金和市场韧性的配套规则。\n- 关注美国大行财报后续披露的信贷成本、净息差和资本回购节奏。",
+  "events": [
+    {
+      "title": "美联储拟允许FedNow通过中介处理跨境支付链路",
+      "date": "2026-04-08",
+      "source": "Federal Reserve",
+      "category": "监管政策",
+      "importance": "中",
+      "summary": "FedNow拟开放中介机构接入",
+      "impact": "实时支付场景将扩展至对应行链路，利好银行支付基础设施与跨境清算创新。",
+      "targets": "美国银行、信用社、支付基础设施、跨境支付服务商",
+      "direction": "利多",
+      "keywords": [
+        "监管",
+        "银行",
+        "风险偏好"
+      ],
+      "follow_up": "是",
+      "link": "https://www.federalreserve.gov/newsevents/pressreleases/other20260408a.htm",
+      "notion_url": "https://www.notion.so/346f9553c570810191a4f767f7b85b72"
+    },
+    {
+      "title": "美国大行交易业务走强但警告经济风险",
+      "date": "2026-04-14",
+      "source": "Reuters",
+      "category": "金融机构",
+      "importance": "中",
+      "summary": "大行盈利受交易提振但口径偏谨慎",
+      "impact": "波动率推升交易与投行业务，但管理层对高油价和需求放缓仍保持谨慎。",
+      "targets": "美国银行股、信用利差、券商板块、企业融资",
+      "direction": "中性",
+      "keywords": [
+        "银行",
+        "财报",
+        "中东"
+      ],
+      "follow_up": "是",
+      "link": "https://www.investing.com/news/stock-market-news/banks-show-trading-strength-caution-on-economic-risk-4613319",
+      "notion_url": "https://www.notion.so/346f9553c5708157b637ebb58091775e"
+    },
+    {
+      "title": "IMF将2026全球增长下调至3.1%",
+      "date": "2026-04-14",
+      "source": "IMF",
+      "category": "国际金融",
+      "importance": "高",
+      "summary": "IMF下调全球增长并上修通胀",
+      "impact": "全球重新面临更弱增长与更高通胀的组合，能源进口国和新兴市场承压更明显。",
+      "targets": "全球股市、美债、新兴市场、能源进口国",
+      "direction": "利空",
+      "keywords": [
+        "通胀",
+        "原油",
+        "中东"
+      ],
+      "follow_up": "是",
+      "link": "https://www.imf.org/en/publications/weo/issues/2026/04/14/world-economic-outlook-april-2026",
+      "notion_url": "https://www.notion.so/346f9553c5708179b926fdbbc627be9d"
+    },
+    {
+      "title": "IMF警示中东战争放大金融脆弱性",
+      "date": "2026-04-14",
+      "source": "IMF",
+      "category": "国际金融",
+      "importance": "高",
+      "summary": "IMF称市场暂稳但放大风险上升",
+      "impact": "高杠杆非银、集中持仓和紧信用利差可能把有序调整放大为流动性压力。",
+      "targets": "全球债市、非银机构、私募信贷、新兴市场",
+      "direction": "利空",
+      "keywords": [
+        "风险偏好",
+        "中东",
+        "通胀"
+      ],
+      "follow_up": "是",
+      "link": "https://www.imf.org/en/blogs/articles/2026/04/14/war-in-the-middle-east-challenges-global-financial-stability",
+      "notion_url": "https://www.notion.so/346f9553c5708192a400df4f101e9127"
+    },
+    {
+      "title": "IMF预警全球公债率将提前触及100% GDP",
+      "date": "2026-04-15",
+      "source": "IMF",
+      "category": "国际金融",
+      "importance": "高",
+      "summary": "全球公债率将提前触及100% GDP",
+      "impact": "主权收益率对通胀与战争冲击更敏感，美债安全溢价削弱会放大再定价。",
+      "targets": "主权债券、美债、全球利率敏感资产",
+      "direction": "利空",
+      "keywords": [
+        "利率",
+        "通胀",
+        "风险偏好"
+      ],
+      "follow_up": "是",
+      "link": "https://www.imf.org/en/publications/fm/issues/2026/04/15/fiscal-monitor-april-2026",
+      "notion_url": "https://www.notion.so/346f9553c570817fa4b6f3f33a703d75"
+    },
+    {
+      "title": "SEC批准美债客户跨保证金机制",
+      "date": "2026-04-15",
+      "source": "SEC",
+      "category": "监管政策",
+      "importance": "中",
+      "summary": "SEC放行美债客户跨保证金",
+      "impact": "现金美债和美债期货客户头寸可交叉保证金，有助于释放流动性并推进国债清算改革。",
+      "targets": "美债市场、清算机构、期货经纪商、做市商",
+      "direction": "利多",
+      "keywords": [
+        "监管",
+        "利率",
+        "风险偏好"
+      ],
+      "follow_up": "是",
+      "link": "https://www.sec.gov/newsroom/press-releases/2026-36-sec-approves-exemptive-order-proposed-rule-change-permit-customer-cross-margining-us-treasury-market",
+      "notion_url": "https://www.notion.so/346f9553c57081f584d5d5ebdeebd211"
+    },
+    {
+      "title": "美国3月工业产出环比下降0.5%",
+      "date": "2026-04-16",
+      "source": "Federal Reserve",
+      "category": "宏观经济",
+      "importance": "中",
+      "summary": "美国3月工业产出转弱",
+      "impact": "美国工业和制造业动能回落，强化增长放缓但通胀风险未尽消的复杂组合。",
+      "targets": "美联储政策预期、美元、美股周期板块、工业品",
+      "direction": "利空",
+      "keywords": [
+        "利率",
+        "通胀",
+        "风险偏好"
+      ],
+      "follow_up": "是",
+      "link": "https://www.federalreserve.gov/releases/g17/current/default.htm",
+      "notion_url": "https://www.notion.so/346f9553c57081c1ba29dd432220c3ad"
+    },
+    {
+      "title": "霍尔木兹重开推动全球股债上涨油价跳水",
+      "date": "2026-04-17",
+      "source": "Reuters",
+      "category": "资本市场",
+      "importance": "高",
+      "summary": "霍尔木兹重开引发油跌股涨",
+      "impact": "油价急跌与股债同涨反映通胀溢价和避险需求同步回落，但交易逻辑仍依赖停火持续性。",
+      "targets": "全球股市、原油、美债、欧洲利率市场",
+      "direction": "利多",
+      "keywords": [
+        "原油",
+        "中东",
+        "风险偏好"
+      ],
+      "follow_up": "是",
+      "link": "https://www.investing.com/news/economy-news/global-markets-surge-as-iran-says-strait-of-hormuz-open-during-ceasefire-4620450",
+      "notion_url": "https://www.notion.so/346f9553c5708114b791f220e82e6557"
+    }
+  ]
+}

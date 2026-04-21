@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>金融日报 · 目录</title>
+    <meta name="description" content="金融日报静态目录" />
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <div class="wrap">
+        <div class="top">
+          <a class="top__brand" href="./index.html">Finance Daily</a>
+          <div class="top__meta">静态可视化 · 目录 + 每日卡片</div>
+        </div>
+        
+    <section class="hero">
+      <div class="hero__pill">FINANCE DAILY DIRECTORY</div>
+      <h1 class="hero__title">金融日报 目录</h1>
+      <p class="hero__desc">目录页按卡片展示每个“日期”。后续只需新增一个日期 JSON 文件，重新运行生成脚本后会自动新增一张卡片和对应详情页。</p>
+      <div class="hero__meta">
+        <span>记录源：<code>site/data/days</code></span>
+        <span>卡片数量：<strong>5</strong></span>
+        <span>输出目录：<code>site/dist</code></span>
+      </div>
+      <div class="hero__kpis">
+        <div class="kpi">
+          <div class="kpi__k">事件总数</div>
+          <div class="kpi__v">32</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi__k">高重要</div>
+          <div class="kpi__v">14</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi__k">需跟踪</div>
+          <div class="kpi__v">28</div>
+        </div>
+      </div>
+      
+    <div class="trend" data-trend data-default-range="30" data-series='[{&quot;date&quot;:&quot;2026-04-15&quot;,&quot;events&quot;:6,&quot;high&quot;:3,&quot;follow&quot;:6},{&quot;date&quot;:&quot;2026-04-16&quot;,&quot;events&quot;:6,&quot;high&quot;:4,&quot;follow&quot;:6},{&quot;date&quot;:&quot;2026-04-18&quot;,&quot;events&quot;:8,&quot;high&quot;:4,&quot;follow&quot;:8},{&quot;date&quot;:&quot;2026-04-20&quot;,&quot;events&quot;:7,&quot;high&quot;:2,&quot;follow&quot;:5},{&quot;date&quot;:&quot;2026-04-21&quot;,&quot;events&quot;:5,&quot;high&quot;:1,&quot;follow&quot;:3}]'>
+      <div class="trend__head">
+        <div>
+          <div class="trend__k">趋势</div>
+          <div class="trend__v"><span data-range-label>最近30天</span> · 事件（主线）/ 高重要（辅线）</div>
+        </div>
+        <div class="seg">
+          <button class="seg__btn" data-range="7">7天</button>
+          <button class="seg__btn" data-range="30">30天</button>
+          <button class="seg__btn" data-range="all">全部</button>
+        </div>
+      </div>
+      <div class="trend__wrap">
+        <div class="trend__tooltip" data-tooltip></div>
+        <svg viewBox="0 0 860 220" width="860" height="220" class="trend__svg" aria-label="趋势图">
+          <defs>
+            <linearGradient id="gMain" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-color="rgba(47,129,247,0.26)"></stop>
+              <stop offset="100%" stop-color="rgba(47,129,247,0)"></stop>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="860" height="220" rx="14" fill="rgba(255,255,255,0.03)"></rect>
+          <path data-path-main fill="none" stroke="rgba(47,129,247,0.95)" stroke-width="2.2" stroke-linecap="round"></path>
+          <path data-path-alt fill="none" stroke="rgba(34,197,94,0.85)" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"></path>
+          <g data-dots fill="rgba(47,129,247,0.95)"></g>
+        </svg>
+      </div>
+      <div class="trend__legend">
+        <span class="lg"><span class="lg__swatch" style="background:rgba(47,129,247,0.95)"></span>事件</span>
+        <span class="lg"><span class="lg__swatch" style="background:rgba(34,197,94,0.85)"></span>高重要</span>
+      </div>
+    </div>
+  
+    </section>
+    <section class="cards">
+      <a class="card" href="./days/2026-04-21.html">
+  <div class="card__top">
+    <div class="card__k">FINANCE DAILY</div>
+    <div class="badge">2026-04-21</div>
+  </div>
+  <div class="card__title">金融日报 2026-04-21</div>
+  <div class="card__desc">SEC/CFTC拟大幅提高Form PF申报门槛并精简披露，SEC更新美债清算落地与豁免进展；SAFE披露3月结售汇与跨境收支并称外汇市场总体平稳。</div>
+  <div class="card__bar"><svg class="spark" viewBox="0 0 280 10" width="280" height="10" role="img" aria-label="分布图">
+  <rect x="0" y="0" width="280" height="10" rx="6" ry="6" fill="rgba(255,255,255,0.08)"></rect>
+  <rect x="0" y="0" width="56" height="10" rx="6" ry="6" fill="#ef4444" fill-opacity="0.9"></rect><rect x="56" y="0" width="168" height="10" rx="6" ry="6" fill="#f59e0b" fill-opacity="0.9"></rect><rect x="224" y="0" width="56" height="10" rx="6" ry="6" fill="#22c55e" fill-opacity="0.9"></rect>
+</svg></div>
+  <div class="stat-grid">
+    <div class="stat">
+      <div class="stat__k">事件总数</div>
+      <div class="stat__v">5</div>
+    </div>
+    <div class="stat">
+      <div class="stat__k">需跟踪 / 高重要</div>
+      <div class="stat__v">3 / 1</div>
+    </div>
+  </div>
+  <div class="card__foot">
+    <div class="card__tags">宏观经济 · 国际金融 · 资本市场 · 监管政策</div>
+    <div class="chip">高 级</div>
+  </div>
+</a>
+<a class="card" href="./days/2026-04-20.html">
+  <div class="card__top">
+    <div class="card__k">FINANCE DAILY</div>
+    <div class="badge">2026-04-20</div>
+  </div>
+  <div class="card__title">金融日报 2026-04-20</div>
+  <div class="card__desc">地缘冲突相关海上封锁升级抬升能源与通胀风险溢价；SEC/CFTC推进美债市场跨保证金与清算改革，美联储释放利率与支付系统政策信号。</div>
+  <div class="card__bar"><svg class="spark" viewBox="0 0 280 10" width="280" height="10" role="img" aria-label="分布图">
+  <rect x="0" y="0" width="280" height="10" rx="6" ry="6" fill="rgba(255,255,255,0.08)"></rect>
+  <rect x="0" y="0" width="80" height="10" rx="6" ry="6" fill="#ef4444" fill-opacity="0.9"></rect><rect x="80" y="0" width="200" height="10" rx="6" ry="6" fill="#f59e0b" fill-opacity="0.9"></rect>
+</svg></div>
+  <div class="stat-grid">
+    <div class="stat">
+      <div class="stat__k">事件总数</div>
+      <div class="stat__v">7</div>
+    </div>
+    <div class="stat">
+      <div class="stat__k">需跟踪 / 高重要</div>
+      <div class="stat__v">5 / 2</div>
+    </div>
+  </div>
+  <div class="card__foot">
+    <div class="card__tags">宏观经济 · 监管政策 · 国际金融 · 金融机构</div>
+    <div class="chip">高 级</div>
+  </div>
+</a>
+<a class="card" href="./days/2026-04-18.html">
+  <div class="card__top">
+    <div class="card__k">FINANCE DAILY</div>
+    <div class="badge">2026-04-18</div>
+  </div>
+  <div class="card__title">金融日报 2026-04-18</div>
+  <div class="card__desc">IMF春季旗舰报告集中抬升全球增长、债务与金融稳定警报，美联储与SEC同步释放宏观放缓和市场基础设施改革信号；霍尔木兹重开带来短线风险偏好修复。</div>
+  <div class="card__bar"><svg class="spark" viewBox="0 0 280 10" width="280" height="10" role="img" aria-label="分布图">
+  <rect x="0" y="0" width="280" height="10" rx="6" ry="6" fill="rgba(255,255,255,0.08)"></rect>
+  <rect x="0" y="0" width="140" height="10" rx="6" ry="6" fill="#ef4444" fill-opacity="0.9"></rect><rect x="140" y="0" width="140" height="10" rx="6" ry="6" fill="#f59e0b" fill-opacity="0.9"></rect>
+</svg></div>
+  <div class="stat-grid">
+    <div class="stat">
+      <div class="stat__k">事件总数</div>
+      <div class="stat__v">8</div>
+    </div>
+    <div class="stat">
+      <div class="stat__k">需跟踪 / 高重要</div>
+      <div class="stat__v">8 / 4</div>
+    </div>
+  </div>
+  <div class="card__foot">
+    <div class="card__tags">监管政策 · 金融机构 · 国际金融 · 宏观经济</div>
+    <div class="chip">高 级</div>
+  </div>
+</a>
+<a class="card" href="./days/2026-04-16.html">
+  <div class="card__top">
+    <div class="card__k">FINANCE DAILY</div>
+    <div class="badge">2026-04-16</div>
+  </div>
+  <div class="card__title">金融日报 2026-04-16</div>
+  <div class="card__desc">美联储褐皮书与IMF双双强调战争推升通胀和不确定性，市场短线风险偏好回暖但中期宏观压力未解。</div>
+  <div class="card__bar"><svg class="spark" viewBox="0 0 280 10" width="280" height="10" role="img" aria-label="分布图">
+  <rect x="0" y="0" width="280" height="10" rx="6" ry="6" fill="rgba(255,255,255,0.08)"></rect>
+  <rect x="0" y="0" width="187" height="10" rx="6" ry="6" fill="#ef4444" fill-opacity="0.9"></rect><rect x="187" y="0" width="93" height="10" rx="6" ry="6" fill="#f59e0b" fill-opacity="0.9"></rect>
+</svg></div>
+  <div class="stat-grid">
+    <div class="stat">
+      <div class="stat__k">事件总数</div>
+      <div class="stat__v">6</div>
+    </div>
+    <div class="stat">
+      <div class="stat__k">需跟踪 / 高重要</div>
+      <div class="stat__v">6 / 4</div>
+    </div>
+  </div>
+  <div class="card__foot">
+    <div class="card__tags">宏观经济 · 金融机构 · 资本市场 · 国际金融</div>
+    <div class="chip">高 级</div>
+  </div>
+</a>
+<a class="card" href="./days/2026-04-15.html">
+  <div class="card__top">
+    <div class="card__k">FINANCE DAILY</div>
+    <div class="badge">2026-04-15</div>
+  </div>
+  <div class="card__title">金融日报 2026-04-15</div>
+  <div class="card__desc">美联储纪要偏鹰、国内信贷回升但偏弱，市场继续交易地缘缓和与风险偏好修复。</div>
+  <div class="card__bar"><svg class="spark" viewBox="0 0 280 10" width="280" height="10" role="img" aria-label="分布图">
+  <rect x="0" y="0" width="280" height="10" rx="6" ry="6" fill="rgba(255,255,255,0.08)"></rect>
+  <rect x="0" y="0" width="140" height="10" rx="6" ry="6" fill="#ef4444" fill-opacity="0.9"></rect><rect x="140" y="0" width="140" height="10" rx="6" ry="6" fill="#f59e0b" fill-opacity="0.9"></rect>
+</svg></div>
+  <div class="stat-grid">
+    <div class="stat">
+      <div class="stat__k">事件总数</div>
+      <div class="stat__v">6</div>
+    </div>
+    <div class="stat">
+      <div class="stat__k">需跟踪 / 高重要</div>
+      <div class="stat__v">6 / 3</div>
+    </div>
+  </div>
+  <div class="card__foot">
+    <div class="card__tags">国际金融 · 监管政策 · 宏观经济 · 金融机构</div>
+    <div class="chip">高 级</div>
+  </div>
+</a>
+    </section>
+  
+        <footer class="footer">
+          <div>生成于 2026-04-21T02:04:13.839Z</div>
+        </footer>
+      </div>
+    </div>
+    <script type="module">
+      const toggles = document.querySelectorAll("[data-toggle]");
+      for (const btn of toggles) {
+        btn.addEventListener("click", () => {
+          const id = btn.getAttribute("data-toggle");
+          const el = document.getElementById(id);
+          if (!el) return;
+          const next = el.getAttribute("data-open") !== "1";
+          el.setAttribute("data-open", next ? "1" : "0");
+        });
+      }
+
+      // Trend chart (index page)
+      const trend = document.querySelector("[data-trend]");
+      if (trend) {
+        const raw = trend.getAttribute("data-series");
+        const series = raw ? JSON.parse(raw) : [];
+        const btns = document.querySelectorAll("[data-range]");
+        const svg = trend.querySelector("svg");
+        const pathMain = trend.querySelector("[data-path-main]");
+        const pathAlt = trend.querySelector("[data-path-alt]");
+        const dots = trend.querySelector("[data-dots]");
+        const tooltip = trend.querySelector("[data-tooltip]");
+        const label = trend.querySelector("[data-range-label]");
+
+        function sliceSeries(range) {
+          if (range === "all") return series;
+          const n = Number(range);
+          if (!Number.isFinite(n) || n <= 0) return series;
+          return series.slice(Math.max(0, series.length - n));
+        }
+
+        function buildPath(points, w, h, pad, maxY, field) {
+          const usableW = w - pad * 2;
+          const usableH = h - pad * 2;
+          const n = points.length;
+          if (n === 0) return "";
+          const scaleX = n === 1 ? 0 : usableW / (n - 1);
+          const scaleY = maxY <= 0 ? 0 : usableH / maxY;
+          let d = "";
+          for (let i = 0; i < n; i++) {
+            const x = pad + i * scaleX;
+            const v = points[i][field] ?? 0;
+            const y = pad + (usableH - v * scaleY);
+            d += (i === 0 ? "M" : " L") + " " + x.toFixed(2) + " " + y.toFixed(2);
+          }
+          return d;
+        }
+
+        function render(range) {
+          const points = sliceSeries(range);
+          const w = 860;
+          const h = 220;
+          const pad = 18;
+          const maxY = Math.max(1, ...points.map((p) => p.events ?? 0));
+          if (label) label.textContent = range === "all" ? "全部" : "最近" + range + "天";
+
+          if (pathMain) pathMain.setAttribute("d", buildPath(points, w, h, pad, maxY, "events"));
+          if (pathAlt) pathAlt.setAttribute("d", buildPath(points, w, h, pad, maxY, "high"));
+          if (dots) {
+            const usableW = w - pad * 2;
+            const usableH = h - pad * 2;
+            const n = points.length;
+            const scaleX = n === 1 ? 0 : usableW / (n - 1);
+            const scaleY = maxY <= 0 ? 0 : usableH / maxY;
+            dots.innerHTML = points
+              .map((p, i) => {
+                const x = pad + i * scaleX;
+                const y = pad + (usableH - (p.events ?? 0) * scaleY);
+                return (
+                  '<circle cx="' +
+                  x.toFixed(2) +
+                  '" cy="' +
+                  y.toFixed(2) +
+                  '" r="3.2" data-x="' +
+                  x.toFixed(2) +
+                  '" data-y="' +
+                  y.toFixed(2) +
+                  '" data-date="' +
+                  p.date +
+                  '" data-events="' +
+                  p.events +
+                  '" data-high="' +
+                  p.high +
+                  '"></circle>'
+                );
+              })
+              .join("");
+          }
+        }
+
+        function setActive(range) {
+          for (const b of btns) b.toggleAttribute("data-active", b.getAttribute("data-range") === range);
+        }
+
+        function init() {
+          const defaultRange = trend.getAttribute("data-default-range") || "30";
+          setActive(defaultRange);
+          render(defaultRange);
+        }
+
+        for (const b of btns) {
+          b.addEventListener("click", () => {
+            const range = b.getAttribute("data-range") || "all";
+            setActive(range);
+            render(range);
+          });
+        }
+
+        if (svg && tooltip) {
+          svg.addEventListener("mousemove", (ev) => {
+            const target = ev.target;
+            if (!(target instanceof SVGCircleElement)) return;
+            const date = target.getAttribute("data-date") || "";
+            const events = target.getAttribute("data-events") || "0";
+            const high = target.getAttribute("data-high") || "0";
+            tooltip.innerHTML =
+              '<div class="tt__t">' +
+              date +
+              '</div><div class="tt__b">事件 ' +
+              events +
+              " · 高 " +
+              high +
+              "</div>";
+            tooltip.style.opacity = "1";
+            const rect = svg.getBoundingClientRect();
+            tooltip.style.left = String(ev.clientX - rect.left + 12) + "px";
+            tooltip.style.top = String(ev.clientY - rect.top - 12) + "px";
+          });
+          svg.addEventListener("mouseleave", () => {
+            tooltip.style.opacity = "0";
+          });
+        }
+
+        init();
+      }
+    </script>
+  </body>
+</html>

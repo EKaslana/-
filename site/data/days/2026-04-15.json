@@ -1,0 +1,118 @@
+{
+  "date": "2026-04-15",
+  "title": "金融日报 2026-04-15",
+  "summary": "美联储纪要偏鹰、国内信贷回升但偏弱，市场继续交易地缘缓和与风险偏好修复。",
+  "notion_url": "https://www.notion.so/343f9553c570811cb0c5db4832afb932",
+  "reportMarkdown": "## 今日重点\n- 美联储3月会议纪要显示，几乎所有委员支持将联邦基金利率维持在 3.5%-3.75%，并明确提到中东局势抬升通胀与就业双向风险。\n- 中国3月新增人民币贷款预估回升至约 3.4万亿元，但仍低于去年同期，说明节后信用修复存在、真实融资需求仍偏弱。\n- 美股继续走强、油价回落，市场在交易“伊朗局势缓和 + 美国PPI低于预期”的组合。\n## 宏观与政策\n- 美联储：3月纪要显示通胀仍高于 2% 目标，几乎所有委员支持按兵不动，并强调需根据数据与中东局势变化灵活调整政策。\n- 中国信贷：路透调查显示，中国3月新增贷款预估约 3.4万亿元，社融预估约 5.4万亿元，但贷款仍低于2025年3月水平。\n- IMF美国年度评估：IMF预计美国2026年增长 2.4%，核心PCE在2027年上半年回到 2%，但能源价格仍是上行风险。\n## 市场动态\n- 美股与油价：4月14日，美股上行、油价回落，市场押注伊朗谈判窗口重开，同时美国3月PPI弱于预期，缓解了部分通胀焦虑。\n- 银行财报：JPMorgan等美国大行一季报整体强于预期，但管理层继续提示全球风险组合更加复杂。\n## 金融机构与监管\n- SEC披露2025财年执法结果：全年 456 宗执法、货币性救济总额 179亿美元，执法口径明显强调欺诈、市场操纵与投资者保护。\n## 风险提示\n- 中东局势如果再度恶化，油价与通胀预期可能快速反转，当前风险偏好回升并不稳固。\n- 中国信贷即使季节性反弹，若企业与居民中长期融资仍弱，A股内需链和信用扩张逻辑会承压。\n- 美国银行盈利短期稳健，但若利率高位停留更久，信用质量与融资成本的滞后压力会继续累积。\n## 后续观察点\n- 关注 IMF 4月《World Economic Outlook》与《Fiscal Monitor》正式发布后的增速和财政修正。\n- 关注美联储4月15日 Beige Book 与 4月28-29日 FOMC 会议对降息路径的进一步指引。\n- 关注中国3月金融数据正式披露与后续稳增长、宽信用政策是否加码。\n- 关注伊朗局势谈判进展对原油、通胀预期和全球风险资产的传导。",
+  "events": [
+    {
+      "title": "IMF预计美国2026年增长2.4%，能源价格仍是通胀风险",
+      "date": "2026-04-02",
+      "source": "IMF",
+      "category": "国际金融",
+      "importance": "中",
+      "summary": "IMF称美国增长稳但油价仍是通胀风险",
+      "impact": "IMF对美国增长与通胀路径的判断为全球资产定价提供锚点，但能源价格上行意味着降息路径仍不稳。",
+      "targets": "美元资产、美债、全球风险偏好、能源进口国",
+      "direction": "中性",
+      "keywords": [
+        "通胀",
+        "原油"
+      ],
+      "follow_up": "是",
+      "link": "https://www.imf.org/en/news/articles/2026/04/01/pr-26102-usa-imf-executive-board-concludes-2026-article-iv-consult",
+      "notion_url": "https://www.notion.so/343f9553c57081e8aa45e2530bdc9855"
+    },
+    {
+      "title": "SEC公布2025财年执法结果，重心回到欺诈与操纵",
+      "date": "2026-04-07",
+      "source": "SEC",
+      "category": "监管政策",
+      "importance": "中",
+      "summary": "SEC全年执法456宗，聚焦欺诈与操纵",
+      "impact": "监管重心回到投资者保护和市场完整性，有利于提高合规预期，但高风险业务和边缘机构面临更大压力。",
+      "targets": "券商、投顾、加密平台、跨境发行人与交易主体",
+      "direction": "中性",
+      "keywords": [
+        "监管"
+      ],
+      "follow_up": "是",
+      "link": "https://www.sec.gov/newsroom/press-releases/2026-34",
+      "notion_url": "https://www.notion.so/343f9553c570810cad7be1c1275465af"
+    },
+    {
+      "title": "美联储会议纪要维持利率区间不变，强调中东风险",
+      "date": "2026-04-08",
+      "source": "Federal Reserve",
+      "category": "宏观经济",
+      "importance": "高",
+      "summary": "美联储维持3.5%-3.75%利率",
+      "impact": "纪要显示通胀仍偏高且中东局势抬升双向风险，市场对降息时点可能继续后移，影响全球利率与风险资产定价。",
+      "targets": "美债、美元、全球股市、高估值成长股",
+      "direction": "利空",
+      "keywords": [
+        "利率",
+        "通胀",
+        "中东"
+      ],
+      "follow_up": "是",
+      "link": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20260318.htm",
+      "notion_url": "https://www.notion.so/343f9553c57081bbba1ae0b8dff85479"
+    },
+    {
+      "title": "中国3月信贷预计季节性回升但弱于去年",
+      "date": "2026-04-09",
+      "source": "Reuters",
+      "category": "宏观经济",
+      "importance": "高",
+      "summary": "中国3月新增信贷或回升至3.4万亿元",
+      "impact": "信贷与社融回升说明节后融资修复仍在，但低于去年同期反映真实需求偏弱，宽信用和稳增长压力仍在。",
+      "targets": "A股银行地产链、信用债、人民币、内需板块",
+      "direction": "中性",
+      "keywords": [
+        "信贷",
+        "社融"
+      ],
+      "follow_up": "是",
+      "link": "https://www.investing.com/news/economy-news/chinas-march-bank-lending-seen-surging-on-postholiday-rebound-reuters-poll-4604523",
+      "notion_url": "https://www.notion.so/343f9553c570812ea0b9f144c43d2c03"
+    },
+    {
+      "title": "美国大行一季报偏强，但管理层继续提示风险",
+      "date": "2026-04-14",
+      "source": "Yahoo Finance",
+      "category": "金融机构",
+      "importance": "中",
+      "summary": "大行盈利超预期但风险措辞未松",
+      "impact": "银行利润与资本市场业务韧性短期支撑金融板块，但管理层风险警示说明信用质量、地缘和利率波动仍可能压制估值。",
+      "targets": "美国银行股、资管股、信用利差、金融ETF",
+      "direction": "中性",
+      "keywords": [
+        "财报",
+        "银行"
+      ],
+      "follow_up": "是",
+      "link": "https://finance.yahoo.com/markets/article/jpmorgan-and-other-big-banks-see-profits-rise-as-dimon-warns-of-increasingly-complex-set-of-risks-105717454.html",
+      "notion_url": "https://www.notion.so/343f9553c57081c2968de149d4ac212b"
+    },
+    {
+      "title": "美股逼近新高、油价回落，市场押注伊朗局势缓和",
+      "date": "2026-04-14",
+      "source": "Yahoo Finance",
+      "category": "资本市场",
+      "importance": "高",
+      "summary": "风险偏好回升推动美股上涨油价下跌",
+      "impact": "若地缘局势继续降温且通胀数据放缓，全球风险资产估值压力将缓解；反之油价与利率预期可能再度反转。",
+      "targets": "全球股市、原油、黄金、美债",
+      "direction": "利多",
+      "keywords": [
+        "原油",
+        "风险偏好",
+        "中东"
+      ],
+      "follow_up": "是",
+      "link": "https://finance.yahoo.com/markets/stocks/article/stock-market-today-dow-sp-500-nasdaq-futures-mixed-amid-iran-deal-hopes-earnings-rush-225637429.html",
+      "notion_url": "https://www.notion.so/343f9553c57081ddb77dc068ab26e446"
+    }
+  ]
+}
