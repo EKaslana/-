@@ -595,12 +595,20 @@ function layout({ title, description, body, cssHref, homeHref }) {
 }
 
 function renderIndex(days) {
+  return renderIndexWithConfig(days, {
+    cssHref: "./assets/styles.css",
+    homeHref: "./index.html",
+    dayHrefPrefix: "./days/",
+  });
+}
+
+function renderIndexWithConfig(days, { cssHref, homeHref, dayHrefPrefix }) {
   const cards = days
     .map((d) => {
       const stats = computeStats(d);
       const breakdown = computeBreakdowns(d);
       const palette = chartColors();
-      const href = `./days/${encodeURIComponent(d.date)}.html`;
+      const href = `${dayHrefPrefix}${encodeURIComponent(d.date)}.html`;
       const catText = stats.categories.slice(0, 4).join(" · ");
       const impBar = renderStackBar(breakdown.importance, { width: 280, height: 10, colors: palette.importance });
       return `<a class="card" href="${href}">
@@ -722,16 +730,17 @@ function renderIndex(days) {
     title: "金融日报 · 目录",
     description: "金融日报静态目录",
     body,
-    cssHref: "./assets/styles.css",
-    homeHref: "./index.html",
+    cssHref,
+    homeHref,
   });
 }
 
-function renderDayPage(day, allDays) {
+function renderDayPage(day, allDays, { homeHref = "../index.html" } = {}) {
   const stats = computeStats(day);
   const breakdown = computeBreakdowns(day);
   const palette = chartColors();
-  const sections = parseReportSections(day.reportMarkdown ?? "");
+  const parsedSections = parseReportSections(day.reportMarkdown ?? "");
+  const sections = parsedSections.filter((s) => String(s.title ?? "").trim().toUpperCase() !== "JSON");
   const tocHtml = sections
     .map((s) => {
       const id = slugify(s.title);
@@ -801,7 +810,7 @@ function renderDayPage(day, allDays) {
         <span>事件：<strong>${escapeHtml(stats.eventCount)}</strong></span>
         <span>高重要：<strong>${escapeHtml(stats.highCount)}</strong></span>
         <span>需跟踪：<strong>${escapeHtml(stats.followCount)}</strong></span>
-        <span><a class="hero__link" href="../index.html">返回目录</a></span>
+        <span><a class="hero__link" href="${escapeHtml(homeHref)}">返回目录</a></span>
       </div>
       ${day.summary ? `<p class="hero__desc">${escapeHtml(day.summary)}</p>` : ""}
       ${day.notion_url ? `<div class="hero__meta"><span><a class="hero__link" href="${escapeHtml(day.notion_url)}" target="_blank" rel="noreferrer">打开 Notion 日报</a></span></div>` : ""}
@@ -852,7 +861,7 @@ function renderDayPage(day, allDays) {
     description: day.summary ?? "",
     body,
     cssHref: "../assets/styles.css",
-    homeHref: "../index.html",
+    homeHref,
   });
 }
 
@@ -872,6 +881,12 @@ function main() {
   ensureDir(DIST_DAYS_DIR);
   ensureDir(DIST_ASSETS_DIR);
 
+  const repoIndexPath = path.resolve(process.cwd(), "index.html");
+  const rootIndexEnabled =
+    process.argv.includes("--root-index") ||
+    process.env.ROOT_INDEX === "1" ||
+    (fs.existsSync(repoIndexPath) && !process.argv.includes("--no-root-index"));
+
   const files = fs
     .readdirSync(DATA_DIR, { withFileTypes: true })
     .filter((d) => d.isFile() && d.name.endsWith(".json"))
@@ -885,11 +900,26 @@ function main() {
     })
     .sort((a, b) => b.date.localeCompare(a.date));
 
-  const indexHtml = renderIndex(days);
-  writeText(path.join(DIST_DIR, "index.html"), indexHtml);
+  const distIndexHtml = renderIndexWithConfig(days, {
+    cssHref: "./assets/styles.css",
+    homeHref: "./index.html",
+    dayHrefPrefix: "./days/",
+  });
+  writeText(path.join(DIST_DIR, "index.html"), distIndexHtml);
+
+  if (rootIndexEnabled) {
+    const rootIndexHtml = renderIndexWithConfig(days, {
+      cssHref: "./site/dist/assets/styles.css",
+      homeHref: "./index.html",
+      dayHrefPrefix: "./site/dist/days/",
+    });
+    writeText(repoIndexPath, rootIndexHtml);
+  }
 
   for (const day of days) {
-    const pageHtml = renderDayPage(day, days);
+    const pageHtml = renderDayPage(day, days, {
+      homeHref: rootIndexEnabled ? "../../../index.html" : "../index.html",
+    });
     writeText(path.join(DIST_DAYS_DIR, `${day.date}.html`), pageHtml);
   }
 
