@@ -1,0 +1,114 @@
+{
+  "date": "2026-04-22",
+  "title": "金融日报 2026-04-22",
+  "summary": "地缘冲突与关键航道约束推高油价风险溢价；国内油价下调与央行OMO维持资金平稳；美债客户交叉保证金推进提升清算效率。",
+  "notion_url": "https://www.notion.so/34af9553c57081309001ef058d620fbd",
+  "reportMarkdown": "## 今日重点\n- 【国际金融｜高】特朗普称无限期延长伊朗停火、霍尔木兹仍关闭，油价接近$100并牵动风险偏好与通胀预期。\n  来源：https://za.investing.com/news/stock-market-news/stocks-rise-oil-near-100-as-trump-extends-iran-ceasefire-4224484\n- 【监管政策｜高】SEC/CFTC 批准美债现券与期货客户交叉保证金（FICC×CME），推进 Treasury clearing 实施并提升保证金效率。\n  来源：https://www.sec.gov/newsroom/press-releases/2026-36-sec-approves-exemptive-order-proposed-rule-change-permit-customer-cross-margining-us-treasury-market\n- 【宏观经济｜中】发改委下调国内汽柴油价格（每吨-555/-530），自4月21日24时起执行，短期利于运输与消费成本。\n  来源：https://finance.sina.com.cn/jjxw/2026-04-22/doc-inhviaew4709404.shtml\n\n## 宏观与政策\n- 央行开展60亿元7天期逆回购（1.40%），继续通过OMO维持资金面平稳。\n  来源：https://www.stcn.com/article/detail/3777805.html\n- 成品油价格下调落地：对通胀读数与居民/物流成本形成阶段性下行贡献，但受国际油价波动与地缘风险再抬升影响。\n  来源：https://finance.sina.com.cn/jjxw/2026-04-22/doc-inhviaew4709404.shtml\n\n## 市场动态\n- 油价在“停火延长 vs 关键航道仍受限”之间博弈，风险溢价仍高；关注能源→通胀→利率预期的链条传导。\n  来源：https://za.investing.com/news/stock-market-news/stocks-rise-oil-near-100-as-trump-extends-iran-ceasefire-4224484\n- 香港金管局公布人民币国债投标结果（2/3/5/15年期），离岸人民币利率曲线定价参考进一步明确。\n  来源：https://www.hkma.gov.hk/gb_chi/news-and-media/press-releases/2026/04/20260422-3/\n\n## 金融机构与监管\n- SEC：发布条件性豁免并批准FICC规则变更，使符合条件的双注册BD-FCM可为客户提供美债现券×期货交叉保证金；与CFTC行动协同。\n  来源：https://www.sec.gov/newsroom/press-releases/2026-36-sec-approves-exemptive-order-proposed-rule-change-permit-customer-cross-margining-us-treasury-market\n- CFTC：批准必要豁免以支持CME与FICC将既有交叉保证金安排扩展至部分客户并设置保障措施。\n  来源：https://www.cftc.gov/PressRoom/PressReleases/9214-26\n\n## 风险提示\n- 地缘风险溢价回落不等于供给冲击解除：霍尔木兹通行/运输恢复节奏决定油价二次波动与通胀再定价风险。\n- 交叉保证金扩围的落地摩擦：账户结构、客户适用范围与风控条件若趋严，短期可能限制“保证金效率”释放速度。\n- 国内油价下调对需求的边际提振可能被国际油价再上行抵消，需跟踪后续调价窗口与政策表态。\n\n## 后续观察点\n1. 霍尔木兹：航运/保险/运价恢复与实际流量数据；油价是否在$90-$100区间形成新平台。\n1. Treasury clearing：SEC/CFTC 豁免的生效条件、参与机构范围、FICC/CME 规则与技术对接时间表。\n1. 国内能源：下一轮成品油调价窗口与国际油价高波动下的“临时调控”可能性。\n\n## JSON\n```json\n[\n  {\n    \"title\": \"特朗普延长伊朗停火、霍尔木兹仍关闭推动油价接近100美元\",\n    \"date\": \"2026-04-22\",\n    \"source\": \"Reuters\",\n    \"category\": \"国际金融\",\n    \"importance\": \"高\",\n    \"summary\": \"停火延长但航道受限，油价近$100\",\n    \"impact\": \"地缘供给冲击与航运受限抬升能源风险溢价，影响通胀预期、利率定价与风险偏好。\",\n    \"targets\": \"原油、航运、通胀预期、全球股指与美元\",\n    \"direction\": \"中性\",\n    \"keywords\": [\"伊朗\", \"停火\", \"霍尔木兹\", \"原油\", \"风险偏好\"],\n    \"follow_up\": \"是\",\n    \"link\": \"https://za.investing.com/news/stock-market-news/stocks-rise-oil-near-100-as-trump-extends-iran-ceasefire-4224484\"\n  },\n  {\n    \"title\": \"SEC/CFTC批准美债现券与期货客户交叉保证金（FICC×CME）\",\n    \"date\": \"2026-04-15\",\n    \"source\": \"SEC\",\n    \"category\": \"监管政策\",\n    \"importance\": \"高\",\n    \"summary\": \"美债客户交叉保证金获批\",\n    \"impact\": \"提升美债市场保证金效率与流动性，配合Treasury clearing实施，降低相关机构的资金占用与尾部流动性压力。\",\n    \"targets\": \"美债现券（FICC）、国债期货（CME）、券商/FCM、清算成员\",\n    \"direction\": \"利多\",\n    \"keywords\": [\"SEC\", \"CFTC\", \"FICC\", \"CME\", \"交叉保证金\"],\n    \"follow_up\": \"是\",\n    \"link\": \"https://www.sec.gov/newsroom/press-releases/2026-36-sec-approves-exemptive-order-proposed-rule-change-permit-customer-cross-margining-us-treasury-market\"\n  },\n  {\n    \"title\": \"发改委下调国内汽柴油价格（每吨-555/-530），4月21日24时起执行\",\n    \"date\": \"2026-04-21\",\n    \"source\": \"国家发展改革委\",\n    \"category\": \"宏观经济\",\n    \"importance\": \"中\",\n    \"summary\": \"国内汽柴油每吨下调555/530元\",\n    \"impact\": \"降低居民与物流能源成本，对短期通胀读数与消费/运输成本形成下行贡献；但国际油价高波动将影响后续调价节奏。\",\n    \"targets\": \"居民消费、物流运输、通胀预期、成品油产业链\",\n    \"direction\": \"利多\",\n    \"keywords\": [\"发改委\", \"成品油\", \"汽油\", \"柴油\", \"通胀\"],\n    \"follow_up\": \"否\",\n    \"link\": \"https://finance.sina.com.cn/jjxw/2026-04-22/doc-inhviaew4709404.shtml\"\n  },\n  {\n    \"title\": \"央行开展60亿元7天期逆回购（1.40%）\",\n    \"date\": \"2026-04-22\",\n    \"source\": \"中国人民银行\",\n    \"category\": \"宏观经济\",\n    \"importance\": \"中\",\n    \"summary\": \"60亿元7天逆回购，利率1.40%\",\n    \"impact\": \"通过公开市场操作对冲短期流动性波动，稳定货币市场利率与短端资金供给。\",\n    \"targets\": \"货币市场利率、短端利率、银行间流动性\",\n    \"direction\": \"利多\",\n    \"keywords\": [\"逆回购\", \"OMO\", \"流动性\", \"利率1.40%\", \"7天\"],\n    \"follow_up\": \"否\",\n    \"link\": \"https://www.stcn.com/article/detail/3777805.html\"\n  },\n  {\n    \"title\": \"香港金管局公布4月22日人民币国债投标结果（2/3/5/15年）\",\n    \"date\": \"2026-04-22\",\n    \"source\": \"香港金融管理局\",\n    \"category\": \"资本市场\",\n    \"importance\": \"中\",\n    \"summary\": \"人民币国债投标结果公布\",\n    \"impact\": \"离岸人民币国债发行定价为市场提供利率曲线参考，并影响CNH资金与利率预期的边际定价。\",\n    \"targets\": \"离岸人民币利率曲线、CNH资金面、债券投资者\",\n    \"direction\": \"中性\",\n    \"keywords\": [\"香港金管局\", \"财政部\", \"人民币国债\", \"投标\", \"离岸CNH\"],\n    \"follow_up\": \"否\",\n    \"link\": \"https://www.hkma.gov.hk/gb_chi/news-and-media/press-releases/2026/04/20260422-3/\"\n  }\n]\n```",
+  "events": [
+    {
+      "title": "特朗普延长伊朗停火、霍尔木兹仍关闭推动油价接近100美元",
+      "date": "2026-04-22",
+      "source": "Reuters",
+      "category": "国际金融",
+      "importance": "高",
+      "summary": "停火延长但航道受限，油价近$100",
+      "impact": "地缘供给冲击与航运受限抬升能源风险溢价，影响通胀预期、利率定价与风险偏好。",
+      "targets": "原油、航运、通胀预期、全球股指与美元",
+      "direction": "中性",
+      "keywords": [
+        "伊朗",
+        "停火",
+        "霍尔木兹",
+        "原油",
+        "风险偏好"
+      ],
+      "follow_up": "是",
+      "link": "https://za.investing.com/news/stock-market-news/stocks-rise-oil-near-100-as-trump-extends-iran-ceasefire-4224484",
+      "notion_url": "https://www.notion.so/34af9553c570812bbcfefc8b017b6063"
+    },
+    {
+      "title": "SEC/CFTC批准美债现券与期货客户交叉保证金（FICC×CME）",
+      "date": "2026-04-15",
+      "source": "SEC",
+      "category": "监管政策",
+      "importance": "高",
+      "summary": "美债客户交叉保证金获批",
+      "impact": "提升美债市场保证金效率与流动性，配合Treasury clearing实施，降低相关机构的资金占用与尾部流动性压力。",
+      "targets": "美债现券（FICC）、国债期货（CME）、券商/FCM、清算成员",
+      "direction": "利多",
+      "keywords": [
+        "SEC",
+        "CFTC",
+        "FICC",
+        "CME",
+        "交叉保证金"
+      ],
+      "follow_up": "是",
+      "link": "https://www.sec.gov/newsroom/press-releases/2026-36-sec-approves-exemptive-order-proposed-rule-change-permit-customer-cross-margining-us-treasury-market",
+      "notion_url": "https://www.notion.so/34af9553c57081dfa36cd13727d59587"
+    },
+    {
+      "title": "发改委下调国内汽柴油价格（每吨-555/-530），4月21日24时起执行",
+      "date": "2026-04-21",
+      "source": "国家发展改革委",
+      "category": "宏观经济",
+      "importance": "中",
+      "summary": "国内汽柴油每吨下调555/530元",
+      "impact": "降低居民与物流能源成本，对短期通胀读数与消费/运输成本形成下行贡献；但国际油价高波动将影响后续调价节奏。",
+      "targets": "居民消费、物流运输、通胀预期、成品油产业链",
+      "direction": "利多",
+      "keywords": [
+        "发改委",
+        "成品油",
+        "汽油",
+        "柴油",
+        "通胀"
+      ],
+      "follow_up": "否",
+      "link": "https://finance.sina.com.cn/jjxw/2026-04-22/doc-inhviaew4709404.shtml",
+      "notion_url": "https://www.notion.so/34af9553c5708168b43def4e10a49dd7"
+    },
+    {
+      "title": "央行开展60亿元7天期逆回购（1.40%）",
+      "date": "2026-04-22",
+      "source": "中国人民银行",
+      "category": "宏观经济",
+      "importance": "中",
+      "summary": "60亿元7天逆回购，利率1.40%",
+      "impact": "通过公开市场操作对冲短期流动性波动，稳定货币市场利率与短端资金供给。",
+      "targets": "货币市场利率、短端利率、银行间流动性",
+      "direction": "利多",
+      "keywords": [
+        "逆回购",
+        "OMO",
+        "流动性",
+        "利率1.40%",
+        "7天"
+      ],
+      "follow_up": "否",
+      "link": "https://www.stcn.com/article/detail/3777805.html",
+      "notion_url": "https://www.notion.so/34af9553c570819e838fef9b6e85771d"
+    },
+    {
+      "title": "香港金管局公布4月22日人民币国债投标结果（2/3/5/15年）",
+      "date": "2026-04-22",
+      "source": "香港金融管理局",
+      "category": "资本市场",
+      "importance": "中",
+      "summary": "人民币国债投标结果公布",
+      "impact": "离岸人民币国债发行定价为市场提供利率曲线参考，并影响CNH资金与利率预期的边际定价。",
+      "targets": "离岸人民币利率曲线、CNH资金面、债券投资者",
+      "direction": "中性",
+      "keywords": [
+        "香港金管局",
+        "财政部",
+        "人民币国债",
+        "投标",
+        "离岸CNH"
+      ],
+      "follow_up": "否",
+      "link": "https://www.hkma.gov.hk/gb_chi/news-and-media/press-releases/2026/04/20260422-3/",
+      "notion_url": "https://www.notion.so/34af9553c570819abe4fe3bb2cf4bd7c"
+    }
+  ]
+}

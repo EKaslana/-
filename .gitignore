@@ -1,2 +1,11 @@
-
+# Secrets
 site/.notion_token
+.env
+.env.local
+.env.*.local
+
+# Node
+node_modules/
+
+# OS
+.DS_Store

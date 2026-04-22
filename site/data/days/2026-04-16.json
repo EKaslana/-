@@ -1,0 +1,121 @@
+{
+  "date": "2026-04-16",
+  "title": "金融日报 2026-04-16",
+  "summary": "美联储褐皮书与IMF双双强调战争推升通胀和不确定性，市场短线风险偏好回暖但中期宏观压力未解。",
+  "notion_url": "https://www.notion.so/344f9553c5708120847ac70dcd7c6ced",
+  "reportMarkdown": "## 今日重点\n- 美联储 4 月褐皮书显示，美国多数地区仅录得轻微至温和增长，中东冲突和关税共同推高能源、运输与金属成本，企业明显转向观望。\n- IMF 在 2026 春季会议上把全球今年增速预期下调至 3.1%，并预计通胀回升至 4.4%，明确指出中东战争打断了此前的修复轨迹。\n- 美股继续走强、油价回落，市场短线交易逻辑转向“伊朗谈判希望 + 美国 PPI 低于预期”，但这与中期宏观压力并不一致。\n## 宏观与政策\n- 美联储褐皮书：全美经济活动总体仅“轻微至温和”扩张，多数企业认为中东冲突带来的能源价格上涨与关税导致的金属成本上涨，正在压缩利润率并抬升决策不确定性。\n- 中国信贷：路透调查预计中国 3 月新增人民币贷款约 3.4 万亿元、社融约 5.4 万亿元，较 2 月显著反弹，但仍低于去年同期，显示信用修复仍受真实需求约束。\n## 市场动态\n- 风险资产与原油：美国股市周二继续上行，纳指与标普逼近历史高位，而原油价格回落，市场押注美国与伊朗存在继续谈判空间，同时美国 3 月 PPI 弱于预期缓解了短线通胀焦虑。\n- IMF 金融稳定：IMF GFSR 认为全球市场目前仍保持有序运行、银行体系资本与流动性尚稳，但高杠杆、主权债务、非银融资和私募信贷脆弱性要求继续严密监控。\n## 金融机构与监管\n- 美国大行财报：JPMorgan、花旗、富国与 BlackRock 一季报整体超预期，但管理层继续强调地缘冲突、能源价格波动、贸易不确定性和高资产估值带来的尾部风险；JPM 还下调了全年净利息收入预期。\n## 风险提示\n- 褐皮书显示成本压力已从能源扩散到运输、金属与保险，若持续时间超预期，美联储降息窗口可能继续后移。\n- IMF 的基准预测已经被战争改写，若中东冲突升级，全球增长与通胀都可能进一步恶化。\n- 风险资产当前上涨更多反映短线谈判预期，而非宏观基本面显著改善，容易出现预期反转。\n- 美国银行盈利仍稳，但若高油价与高利率并存时间拉长，信用成本与净息差压力会逐步显现。\n## 后续观察点\n- 关注中东冲突是否出现实质性缓和，而不是停留在谈判表态层面。\n- 关注美国后续硬数据是否验证褐皮书中“增长放缓 + 成本上行”的组合。\n- 关注中国 3 月金融数据正式披露及政策部门是否进一步加码宽信用。\n- 关注 IMF 春季会议后各国财政与金融稳定表述是否继续转向防御。",
+  "events": [
+    {
+      "title": "中国3月信贷预计显著反弹但仍弱于去年同期",
+      "date": "2026-04-09",
+      "source": "Reuters",
+      "category": "宏观经济",
+      "importance": "高",
+      "summary": "中国3月信贷回升但需求仍偏弱",
+      "impact": "信用数据修复说明季节性回暖存在，但弱于去年同期意味着内生融资需求不足，稳增长仍需政策托底。",
+      "targets": "A股、人民币、信用债、银行地产链",
+      "direction": "中性",
+      "keywords": [
+        "信贷",
+        "社融"
+      ],
+      "follow_up": "是",
+      "link": "https://www.investing.com/news/economy-news/chinas-march-bank-lending-seen-surging-on-postholiday-rebound-reuters-poll-4604523",
+      "notion_url": "https://www.notion.so/344f9553c570816a810ac88f406f5906"
+    },
+    {
+      "title": "美国大行盈利超预期但继续警告复杂风险上升",
+      "date": "2026-04-14",
+      "source": "Yahoo Finance",
+      "category": "金融机构",
+      "importance": "中",
+      "summary": "大行财报强但风险警示未消失",
+      "impact": "银行短期盈利与交易业务韧性仍在，但净息差和信用风险可能在高利率高油价环境中逐步暴露。",
+      "targets": "美国银行股、资管股、信用利差、金融ETF",
+      "direction": "中性",
+      "keywords": [
+        "财报",
+        "银行"
+      ],
+      "follow_up": "是",
+      "link": "https://finance.yahoo.com/markets/article/jpmorgan-and-other-big-banks-see-profits-rise-as-dimon-warns-of-increasingly-complex-set-of-risks-105717454.html",
+      "notion_url": "https://www.notion.so/344f9553c570810da4bdfce5cf03b49e"
+    },
+    {
+      "title": "美股上涨油价回落反映伊朗谈判乐观预期",
+      "date": "2026-04-14",
+      "source": "Yahoo Finance",
+      "category": "资本市场",
+      "importance": "高",
+      "summary": "风险偏好回升推高股市压低油价",
+      "impact": "若谈判预期兑现，油价和通胀预期会进一步回落并支撑风险资产；若落空，市场可能快速回撤。",
+      "targets": "美股、原油、黄金、美债",
+      "direction": "利多",
+      "keywords": [
+        "原油",
+        "风险偏好",
+        "中东"
+      ],
+      "follow_up": "是",
+      "link": "https://finance.yahoo.com/markets/stocks/article/stock-market-today-dow-sp-500-nasdaq-futures-edge-higher-as-hopes-for-an-iran-deal-grow-225637511.html",
+      "notion_url": "https://www.notion.so/344f9553c5708114b23de133f6693b2a"
+    },
+    {
+      "title": "IMF下调2026年全球增长至3.1%并预计通胀升至4.4%",
+      "date": "2026-04-14",
+      "source": "IMF",
+      "category": "国际金融",
+      "importance": "高",
+      "summary": "IMF下调全球增长并上修通胀",
+      "impact": "IMF确认战争已打断全球修复趋势，全球资产定价将面对更弱增长和更高通胀的组合。",
+      "targets": "全球股市、美债、新兴市场、能源进口国",
+      "direction": "利空",
+      "keywords": [
+        "通胀",
+        "原油",
+        "中东"
+      ],
+      "follow_up": "是",
+      "link": "https://mediacenter.imf.org/news/imf---3q-world-economic-outlook/s/ec9072f8-6904-4e8a-8d1b-a87030e587cc",
+      "notion_url": "https://www.notion.so/344f9553c5708118a77dde928aa6c27a"
+    },
+    {
+      "title": "IMF称全球市场暂稳但债务和非银脆弱性上升",
+      "date": "2026-04-14",
+      "source": "IMF",
+      "category": "国际金融",
+      "importance": "中",
+      "summary": "IMF称市场暂稳但金融脆弱性累积",
+      "impact": "金融体系短期未失序，但高杠杆、主权债和非银风险意味着冲击一旦放大，波动会被迅速传导。",
+      "targets": "债券市场、非银机构、新兴市场、私募信贷",
+      "direction": "中性",
+      "keywords": [
+        "银行",
+        "风险偏好"
+      ],
+      "follow_up": "是",
+      "link": "https://mediacenter.imf.org/news/imf---global-financial-stability-report-press-briefing/s/6eba7311-b483-4731-98ea-9cff20860d9f",
+      "notion_url": "https://www.notion.so/344f9553c570812eb141f7ee0cc2b223"
+    },
+    {
+      "title": "美联储褐皮书显示经济温和扩张且成本压力抬升",
+      "date": "2026-04-15",
+      "source": "Federal Reserve",
+      "category": "宏观经济",
+      "importance": "高",
+      "summary": "褐皮书称增长偏温和且成本上行",
+      "impact": "美国经济活动未明显恶化，但能源与关税同步推升成本，意味着通胀黏性和利润率压力仍在，可能压缩降息空间。",
+      "targets": "美债、美元、美股、制造业与消费板块",
+      "direction": "利空",
+      "keywords": [
+        "利率",
+        "通胀",
+        "中东",
+        "原油"
+      ],
+      "follow_up": "是",
+      "link": "https://www.federalreserve.gov/monetarypolicy/beigebook202604-summary.htm",
+      "notion_url": "https://www.notion.so/344f9553c5708151a3ced0c476848e79"
+    }
+  ]
+}

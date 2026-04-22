@@ -1,25 +1,9 @@
+import 'dotenv/config';
 import fs from "node:fs";
 import path from "node:path";
 
 const ROOT = path.resolve(process.cwd(), "site");
 const DATA_DIR = path.join(ROOT, "data", "days");
-
-function readTokenFromFile() {
-  const tokenFile =
-    process.env.NOTION_TOKEN_FILE || path.join(ROOT, ".notion_token");
-  try {
-    if (!fs.existsSync(tokenFile)) return "";
-    const t = fs.readFileSync(tokenFile, "utf8").trim();
-    return t;
-  } catch {
-    return "";
-  }
-}
-
-const NOTION_TOKEN =
-  process.env.NOTION_TOKEN ||
-  process.env.NOTION_API_KEY ||
-  readTokenFromFile();
 
 // From existing Notion workspace:
 // - 金融每日记录: https://www.notion.so/343f9553c5708071b237e68b0e8764a0
@@ -60,24 +44,25 @@ function pageUrl(pageIdOrUuid) {
 }
 
 async function notionFetch(url, { method = "GET", body } = {}) {
-  if (!NOTION_TOKEN) {
+  if (!process.env.NOTION_TOKEN) {
     throw new Error([
-      "缺少 NOTION_TOKEN（或 NOTION_API_KEY）。",
-      "请先设置环境变量再运行：",
-      '  export NOTION_TOKEN=\"你的 Notion Integration Token\"',
+      "缺少 NOTION_TOKEN 环境变量。",
+      "请先设置后再运行：",
+      "1) 临时（当前终端会话）：",
+      '  export NOTION_TOKEN="你的 Notion Integration Token"',
       "",
-      "或在本机创建文件（不要发到聊天里）：",
-      `  ${path.join(ROOT, ".notion_token")}`,
-      "文件内容仅一行：你的 Notion Integration Token",
+      "2) 使用 .env（推荐，避免误提交到 git）：",
+      "  在项目根目录创建 .env 文件，并写入：",
+      "    NOTION_TOKEN=你的 Notion Integration Token",
       "",
       "可选：限制同步范围：",
-      "  node site/sync-notion.mjs --since YYYY-MM-DD --until YYYY-MM-DD --limit 50",
+      "  node sync-notion.mjs --since YYYY-MM-DD --until YYYY-MM-DD --limit 50",
     ].join("\n"));
   }
   const res = await fetch(url, {
     method,
     headers: {
-      Authorization: `Bearer ${NOTION_TOKEN}`,
+      Authorization: `Bearer ${process.env.NOTION_TOKEN}`,
       "Notion-Version": "2022-06-28",
       "Content-Type": "application/json",
     },
