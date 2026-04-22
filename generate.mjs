@@ -766,7 +766,6 @@ function renderDayPage(day, allDays, { homeHref = "../index.html" } = {}) {
   <div class="event__sub">
     <span>${escapeHtml(e.source ?? "")}</span>
     ${e.date ? `<span>事件日 ${escapeHtml(e.date)}</span>` : ""}
-    ${e.notion_url ? `<span><a class="mini-link" href="${escapeHtml(e.notion_url)}" target="_blank" rel="noreferrer">Notion</a></span>` : ""}
   </div>
   <div class="event__one">${escapeHtml(e.summary ?? "")}</div>
   <div class="event__grid">
@@ -780,9 +779,6 @@ function renderDayPage(day, allDays, { homeHref = "../index.html" } = {}) {
 </article>`;
     })
     .join("\n");
-
-  const jsonBoxId = `json_${slugify(day.date)}`;
-  const jsonText = escapeHtml(JSON.stringify(events, null, 2));
 
   const donut = renderDonut(breakdown.categories, { colors: palette.category });
   const categoryLegend = renderLegend(breakdown.categories, palette.category);
@@ -813,7 +809,6 @@ function renderDayPage(day, allDays, { homeHref = "../index.html" } = {}) {
         <span><a class="hero__link" href="${escapeHtml(homeHref)}">返回目录</a></span>
       </div>
       ${day.summary ? `<p class="hero__desc">${escapeHtml(day.summary)}</p>` : ""}
-      ${day.notion_url ? `<div class="hero__meta"><span><a class="hero__link" href="${escapeHtml(day.notion_url)}" target="_blank" rel="noreferrer">打开 Notion 日报</a></span></div>` : ""}
       <div class="hero__kpis">
         <div class="kpi">
           <div class="kpi__k">最高重要性</div>
@@ -845,14 +840,6 @@ function renderDayPage(day, allDays, { homeHref = "../index.html" } = {}) {
     <section class="block">
       <h2 id="事件">事件</h2>
       <div class="events">${eventCards || `<div class="empty">该日报未包含事件数组。</div>`}</div>
-    </section>
-
-    <section class="block">
-      <div class="json-head">
-        <h2 id="JSON">JSON</h2>
-        <button class="btn" data-toggle="${jsonBoxId}">展开/收起</button>
-      </div>
-      <pre class="json" id="${jsonBoxId}" data-open="0">${jsonText}</pre>
     </section>
   `;
 
