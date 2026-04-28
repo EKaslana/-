@@ -21,6 +21,20 @@ function writeText(filePath, content) {
   fs.writeFileSync(filePath, content, "utf8");
 }
 
+function renderCssLinks(cssHref) {
+  const primary = `<link rel="stylesheet" href="${escapeHtml(cssHref)}" />`;
+  const fallbackHref = "/-/site/dist/assets/styles.css";
+  if (cssHref === "./site/dist/assets/styles.css") {
+    return `${primary}
+    <link rel="stylesheet" href="${fallbackHref}" data-fallback-css="github-pages-root" />`;
+  }
+  if (cssHref === "./assets/styles.css") {
+    return `${primary}
+    <link rel="stylesheet" href="${fallbackHref}" data-fallback-css="github-pages-dist" />`;
+  }
+  return primary;
+}
+
 const EDITION_META = {
   international: { key: "international", label: "国际版", kicker: "FINANCE DAILY · INTERNATIONAL", sort: 0 },
   china: { key: "china", label: "中国版", kicker: "FINANCE DAILY · CHINA", sort: 1 },
@@ -473,7 +487,7 @@ function layout({ title, description, body, cssHref, homeHref }) {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>${escapeHtml(title)}</title>
     <meta name="description" content="${escapeHtml(description ?? "")}" />
-    <link rel="stylesheet" href="${escapeHtml(cssHref)}" />
+    ${renderCssLinks(cssHref)}
   </head>
   <body>
     <div class="page">
