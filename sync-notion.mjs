@@ -11,6 +11,14 @@ const DATA_DIR = path.join(ROOT, "data", "days");
 const DAILY_DB_ID = process.env.NOTION_DAILY_DB_ID || "343f9553c5708071b237e68b0e8764a0";
 const EVENT_DB_ID = process.env.NOTION_EVENT_DB_ID || "9d767f81eaea49ce974bd04a80144284";
 
+function getNotionToken() {
+  const fromEnv = process.env.NOTION_TOKEN;
+  if (fromEnv) return String(fromEnv).trim();
+  const tokenPath = path.join(ROOT, ".notion_token");
+  if (fs.existsSync(tokenPath)) return fs.readFileSync(tokenPath, "utf8").trim();
+  return "";
+}
+
 function parseArgs(argv) {
   const out = {};
   for (let i = 0; i < argv.length; i++) {
@@ -44,9 +52,10 @@ function pageUrl(pageIdOrUuid) {
 }
 
 async function notionFetch(url, { method = "GET", body } = {}) {
-  if (!process.env.NOTION_TOKEN) {
+  const token = getNotionToken();
+  if (!token) {
     throw new Error([
-      "缺少 NOTION_TOKEN 环境变量。",
+      "缺少 Notion Token。",
       "请先设置后再运行：",
       "1) 临时（当前终端会话）：",
       '  export NOTION_TOKEN="你的 Notion Integration Token"',
@@ -55,6 +64,8 @@ async function notionFetch(url, { method = "GET", body } = {}) {
       "  在项目根目录创建 .env 文件，并写入：",
       "    NOTION_TOKEN=你的 Notion Integration Token",
       "",
+      "3) 或在 site/.notion_token 中放置 token（与 upsert 脚本一致）",
+      "",
       "可选：限制同步范围：",
       "  node sync-notion.mjs --since YYYY-MM-DD --until YYYY-MM-DD --limit 50",
     ].join("\n"));
@@ -62,7 +73,7 @@ async function notionFetch(url, { method = "GET", body } = {}) {
   const res = await fetch(url, {
     method,
     headers: {
-      Authorization: `Bearer ${process.env.NOTION_TOKEN}`,
+      Authorization: `Bearer ${token}`,
       "Notion-Version": "2022-06-28",
       "Content-Type": "application/json",
     },
@@ -70,6 +81,13 @@ async function notionFetch(url, { method = "GET", body } = {}) {
   });
   const text = await res.text();
   if (!res.ok) {
+    if (res.status === 401) {
+      throw new Error([
+        "Notion API 401 Unauthorized：当前 token 无效或已过期。",
+        "请更新 NOTION_TOKEN 或 site/.notion_token 后重试。",
+        text,
+      ].join("\n"));
+    }
     throw new Error(`Notion API 请求失败：${res.status} ${res.statusText}\n${text}`);
   }
   return JSON.parse(text);

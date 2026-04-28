@@ -3,7 +3,7 @@
   "title": "金融日报 2026-04-27",
   "summary": "IMF在4月WEO中强调中东冲突对增长与通胀的双重冲击，风险偏向下行；美监管机构下调社区银行杠杆率门槛并延长宽限期；SEC/CFTC拟大幅上调Form PF申报阈值以减负。",
   "notion_url": "https://www.notion.so/34ff9553c57081978851e102c3bc79d0",
-  "reportMarkdown": "## 今日重点\n\n- 【国际金融｜高｜利空】IMF《世界经济展望》(2026年4月)将全球经济置于“战争阴影”下：若冲突延长或外溢，商品价格与通胀预期再抬升的尾部风险上行，全球风险资产估值承压。\n- 【监管政策｜中｜利多】美联储/FDIC/OCC联合最终规则下调社区银行杠杆率(CBLR)门槛9%→8%，并将不达标宽限期2季→4季（2026-07-01生效）：社区银行资本框架更“易用”，对中小银行信贷供给边际友好。\n- 【监管政策｜中｜利多】SEC/CFTC拟调整Form PF以降低私募基金申报负担：申报AUM门槛$150m→$1b，“大型对冲基金顾问”门槛$1.5b→$10b；关注FSOC系统性风险监测信息口径是否发生结构性变化。\n\n## 宏观与政策\n\n- 【宏观经济｜中｜中性】央行披露2026年3月各项工具流动性投放：MLF净投放500亿元，7天逆回购净回笼8903亿元，其他结构性工具净投放1728亿元；反映“结构性支持+公开市场对冲”的组合操作。\n- 【国际金融｜中｜利空】IMF在WEO中预计在“冲突有限”假设下全球增长回落、通胀短期回升；下行风险占优（冲突外溢/碎片化/债务高位等）。\n\n## 市场动态\n\n- 推断：在“地缘冲突→能源价格→通胀预期”链条仍未被充分证伪前，利率与信用的期限溢价更易波动，风险偏好更依赖宏观数据兑现与流动性条件。\n\n## 金融机构与监管\n\n- 【监管政策】CBLR门槛下调与宽限期延长，有助于更多社区银行采用简化资本框架并降低报送负担；但在资产质量下行情景下可能放大资本缓冲与信贷扩张之间的权衡。\n- 【监管政策】Form PF减负拟议若落地，将显著减少小型私募管理人的定期/临时报送；需跟踪“私募信贷识别方法”等监管关注点是否强化。\n- 【监管政策｜中｜中性】SEC发布NRSRO年度工作人员报告（2025 OCR Staff Report）：关注评级机构方法论、治理与合规的监管重点是否变化。\n\n## 风险提示\n\n- 地缘冲突假设敏感：WEO预测依赖“冲突有限”假设；一旦冲突持续或外溢，通胀与金融条件的再定价可能非线性。\n- 银行监管与信用扩张：CBLR下调可能在边际上释放资本约束，但风险环境恶化时可能抬升资产负债表脆弱性定价。\n\n## 后续观察点\n\n1. IMF后续对油价/通胀与金融条件的情景更新，以及GFSR(2026年4月)正式发布内容。\n2. CBLR最终规则落地细则与银行采用率（7/1生效前后的资本结构与资产扩张行为）。\n3. Form PF拟议规则的《联邦公报》正式刊登时间与60天评论期内的关键分歧点。\n4. 央行后续公开市场与结构性工具的对冲节奏（资金利率、同业存单、信用利差的传导）。\n\n## JSON\n\n```json\n[\n  {\n    \"title\": \"中国人民银行发布：2026年3月中央银行各项工具流动性投放情况\",\n    \"date\": \"2026-04-02\",\n    \"source\": \"中国人民银行\",\n    \"category\": \"宏观经济\",\n    \"importance\": \"中\",\n    \"summary\": \"3月MLF净投放500亿，7天逆回购净回笼8903亿\",\n    \"impact\": \"从工具组合看，3月公开市场短期限逆回购总体净回笼，而MLF与结构性工具保持净投放，体现央行在“短端对冲+结构性支持”之间的再平衡。对债券与资金面定价而言，关键在于后续公开市场续作力度与资金利率是否出现趋势性抬升。\",\n    \"targets\": \"银行间资金利率、同业存单、债券收益率曲线、信用利差\",\n    \"direction\": \"中性\",\n    \"keywords\": [\"中国人民银行\", \"MLF\", \"逆回购\", \"流动性\", \"结构性工具\"],\n    \"follow_up\": \"是\",\n    \"link\": \"https://www.pbc.gov.cn/zhengcehuobisi/125207/125213/5727710/2026040217142755538/index.html\"\n  },\n  {\n    \"title\": \"美监管机构最终规则：社区银行杠杆率(CBLR)门槛9%下调至8%\",\n    \"date\": \"2026-04-23\",\n    \"source\": \"Federal Reserve Board / FDIC / OCC\",\n    \"category\": \"监管政策\",\n    \"importance\": \"中\",\n    \"summary\": \"CBLR门槛9%→8%，宽限期2季→4季\",\n    \"impact\": \"最终规则在不改变框架结构的情况下下调门槛并延长宽限期，降低社区银行采用简化资本计量的“门槛摩擦”，对中小银行资本管理与信贷供给边际友好。宏观上需关注在盈利与资产质量分化背景下，资本缓冲下降是否带来更高的信用周期敏感性。\",\n    \"targets\": \"美国社区银行、信贷供给、中小企业融资、银行监管资本框架\",\n    \"direction\": \"利多\",\n    \"keywords\": [\"美国银行监管\", \"资本充足率\", \"社区银行\", \"CBLR\"],\n    \"follow_up\": \"是\",\n    \"link\": \"https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260423a.htm\"\n  },\n  {\n    \"title\": \"SEC/CFTC联合提案：上调Form PF申报阈值并精简私募基金报送\",\n    \"date\": \"2026-04-20\",\n    \"source\": \"SEC\",\n    \"category\": \"监管政策\",\n    \"importance\": \"中\",\n    \"summary\": \"Form PF门槛$150m→$1b；大型对冲顾问门槛$1.5b→$10b\",\n    \"impact\": \"提案核心是显著提高申报门槛并精简报送字段，在保留系统性风险监测所需信息的同时降低合规成本。若按提案推进，受监管数据覆盖面、私募信贷识别口径与FSOC监测颗粒度可能发生结构性变化，需关注市场对信息透明度与监管取向的再定价。\",\n    \"targets\": \"私募基金管理人、私募信贷、对冲基金、监管合规成本、系统性风险监测\",\n    \"direction\": \"利多\",\n    \"keywords\": [\"SEC\", \"CFTC\", \"Form PF\", \"私募基金\", \"合规\"],\n    \"follow_up\": \"是\",\n    \"link\": \"https://www.sec.gov/newsroom/press-releases/2026-40-sec-cftc-jointly-propose-amendments-reduce-private-fund-reporting-burdens\"\n  },\n  {\n    \"title\": \"IMF《世界经济展望》2026年4月：全球经济处于战争阴影下\",\n    \"date\": \"2026-04-14\",\n    \"source\": \"IMF\",\n    \"category\": \"国际金融\",\n    \"importance\": \"高\",\n    \"summary\": \"冲突推升通胀不确定性，增长下行风险占优\",\n    \"impact\": \"WEO以“冲突有限”假设给出基准预测，但强调若冲突延长或外溢，商品价格与通胀预期可能再上行并推紧金融条件，全球增长与风险资产估值面临再定价。对资产配置而言，能源冲击的通胀传导与政策反应函数是关键变量。\",\n    \"targets\": \"全球风险资产、能源与通胀预期、主要央行政策路径、金融条件\",\n    \"direction\": \"利空\",\n    \"keywords\": [\"IMF\", \"WEO\", \"地缘冲突\", \"通胀\", \"增长\"],\n    \"follow_up\": \"是\",\n    \"link\": \"https://www.imf.org/en/publications/weo/issues/2026/04/14/world-economic-outlook-april-2026\"\n  },\n  {\n    \"title\": \"IMF博客：中东战争挑战全球金融稳定\",\n    \"date\": \"2026-04-14\",\n    \"source\": \"IMF\",\n    \"category\": \"国际金融\",\n    \"importance\": \"中\",\n    \"summary\": \"市场表面有序但金融稳定风险抬升\",\n    \"impact\": \"IMF指出冲突冲击下资产价格重估与波动上行虽未导致市场失序，但不应将韧性视为稳态；更高能源价格与通胀不确定性可能通过利率、信用与流动性渠道放大金融脆弱性。该判断对风险控制与杠杆管理具有直接指引意义。\",\n    \"targets\": \"波动率、信用利差、杠杆资金、能源与通胀预期\",\n    \"direction\": \"利空\",\n    \"keywords\": [\"IMF\", \"金融稳定\", \"地缘冲突\", \"波动率\"],\n    \"follow_up\": \"是\",\n    \"link\": \"https://www.imf.org/en/blogs/articles/2026/04/14/war-in-the-middle-east-challenges-global-financial-stability\"\n  },\n  {\n    \"title\": \"SEC发布NRSRO年度工作人员报告（2025 OCR Staff Report）\",\n    \"date\": \"2026-04-24\",\n    \"source\": \"SEC\",\n    \"category\": \"监管政策\",\n    \"importance\": \"低\",\n    \"summary\": \"SEC发布对评级机构监管评估年度报告\",\n    \"impact\": \"OCR Staff Report反映SEC对NRSRO的检查关注点与监管重点，可能影响评级机构方法论披露、治理与合规投入方向。对信用市场而言，监管口径变化若触及评级流程与透明度，将影响发行人与投资者对评级可用性的预期。\",\n    \"targets\": \"评级机构(NRSRO)、信用市场、发行人披露与合规成本\",\n    \"direction\": \"中性\",\n    \"keywords\": [\"SEC\", \"NRSRO\", \"评级机构\", \"信用市场\"],\n    \"follow_up\": \"否\",\n    \"link\": \"https://www.sec.gov/about/staff-report-nationally-recognized-statistical-rating-organizations\"\n  }\n]\n```",
+  "reportMarkdown": "## 今日重点\n- 【国际金融｜高｜利空】IMF《世界经济展望》(2026年4月)将全球经济置于“战争阴影”下：若冲突延长或外溢，商品价格与通胀预期再抬升的尾部风险上行，全球风险资产估值承压。\n- 【监管政策｜中｜利多】美联储/FDIC/OCC联合最终规则下调社区银行杠杆率(CBLR)门槛9%→8%，并将不达标宽限期2季→4季（2026-07-01生效）：社区银行资本框架更“易用”，对中小银行信贷供给边际友好。\n- 【监管政策｜中｜利多】SEC/CFTC拟调整Form PF以降低私募基金申报负担：申报AUM门槛$150m→$1b，“大型对冲基金顾问”门槛$1.5b→$10b；关注FSOC系统性风险监测信息口径是否发生结构性变化。\n## 宏观与政策\n- 【宏观经济｜中｜中性】央行披露2026年3月各项工具流动性投放：MLF净投放500亿元，7天逆回购净回笼8903亿元，其他结构性工具净投放1728亿元；反映“结构性支持+公开市场对冲”的组合操作。\n- 【国际金融｜中｜利空】IMF在WEO中预计在“冲突有限”假设下全球增长回落、通胀短期回升；下行风险占优（冲突外溢/碎片化/债务高位等）。\n## 市场动态\n- 推断：在“地缘冲突→能源价格→通胀预期”链条仍未被充分证伪前，利率与信用的期限溢价更易波动，风险偏好更依赖宏观数据兑现与流动性条件。\n## 金融机构与监管\n- 【监管政策】CBLR门槛下调与宽限期延长，有助于更多社区银行采用简化资本框架并降低报送负担；但在资产质量下行情景下可能放大资本缓冲与信贷扩张之间的权衡。\n- 【监管政策】Form PF减负拟议若落地，将显著减少小型私募管理人的定期/临时报送；需跟踪“私募信贷识别方法”等监管关注点是否强化。\n- 【监管政策｜中｜中性】SEC发布NRSRO年度工作人员报告（2025 OCR Staff Report）：关注评级机构方法论、治理与合规的监管重点是否变化。\n## 风险提示\n- 地缘冲突假设敏感：WEO预测依赖“冲突有限”假设；一旦冲突持续或外溢，通胀与金融条件的再定价可能非线性。\n- 银行监管与信用扩张：CBLR下调可能在边际上释放资本约束，但风险环境恶化时可能抬升资产负债表脆弱性定价。\n## 后续观察点\n1. IMF后续对油价/通胀与金融条件的情景更新，以及GFSR(2026年4月)正式发布内容。\n1. CBLR最终规则落地细则与银行采用率（7/1生效前后的资本结构与资产扩张行为）。\n1. Form PF拟议规则的《联邦公报》正式刊登时间与60天评论期内的关键分歧点。\n1. 央行后续公开市场与结构性工具的对冲节奏（资金利率、同业存单、信用利差的传导）。",
   "events": [
     {
       "title": "中国人民银行发布：2026年3月中央银行各项工具流动性投放情况",
@@ -27,45 +27,24 @@
       "notion_url": "https://www.notion.so/34ff9553c57081f0a5bff1b002fd9013"
     },
     {
-      "title": "美监管机构最终规则：社区银行杠杆率(CBLR)门槛9%下调至8%",
-      "date": "2026-04-23",
-      "source": "Federal Reserve Board / FDIC / OCC",
-      "category": "监管政策",
+      "title": "IMF博客：中东战争挑战全球金融稳定",
+      "date": "2026-04-14",
+      "source": "IMF",
+      "category": "国际金融",
       "importance": "中",
-      "summary": "CBLR门槛9%→8%，宽限期2季→4季",
-      "impact": "最终规则在不改变框架结构的情况下下调门槛并延长宽限期，降低社区银行采用简化资本计量的“门槛摩擦”，对中小银行资本管理与信贷供给边际友好。宏观上需关注在盈利与资产质量分化背景下，资本缓冲下降是否带来更高的信用周期敏感性。",
-      "targets": "美国社区银行、信贷供给、中小企业融资、银行监管资本框架",
-      "direction": "利多",
+      "summary": "市场表面有序但金融稳定风险抬升",
+      "impact": "IMF指出冲突冲击下资产价格重估与波动上行虽未导致市场失序，但不应将韧性视为稳态；更高能源价格与通胀不确定性可能通过利率、信用与流动性渠道放大金融脆弱性。该判断对风险控制与杠杆管理具有直接指引意义。",
+      "targets": "波动率、信用利差、杠杆资金、能源与通胀预期",
+      "direction": "利空",
       "keywords": [
-        "美国银行监管",
-        "资本充足率",
-        "社区银行",
-        "CBLR"
+        "IMF",
+        "金融稳定",
+        "地缘冲突",
+        "波动率"
       ],
       "follow_up": "是",
-      "link": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260423a.htm",
-      "notion_url": "https://www.notion.so/34ff9553c570816ba2adf54161ac2c4e"
-    },
-    {
-      "title": "SEC/CFTC联合提案：上调Form PF申报阈值并精简私募基金报送",
-      "date": "2026-04-20",
-      "source": "SEC",
-      "category": "监管政策",
-      "importance": "中",
-      "summary": "Form PF门槛$150m→$1b；大型对冲顾问门槛$1.5b→$10b",
-      "impact": "提案核心是显著提高申报门槛并精简报送字段，在保留系统性风险监测所需信息的同时降低合规成本。若按提案推进，受监管数据覆盖面、私募信贷识别口径与FSOC监测颗粒度可能发生结构性变化，需关注市场对信息透明度与监管取向的再定价。",
-      "targets": "私募基金管理人、私募信贷、对冲基金、监管合规成本、系统性风险监测",
-      "direction": "利多",
-      "keywords": [
-        "SEC",
-        "CFTC",
-        "Form PF",
-        "私募基金",
-        "合规"
-      ],
-      "follow_up": "是",
-      "link": "https://www.sec.gov/newsroom/press-releases/2026-40-sec-cftc-jointly-propose-amendments-reduce-private-fund-reporting-burdens",
-      "notion_url": "https://www.notion.so/34ff9553c57081f2977ef799f12f0984"
+      "link": "https://www.imf.org/en/blogs/articles/2026/04/14/war-in-the-middle-east-challenges-global-financial-stability",
+      "notion_url": "https://www.notion.so/34ff9553c570818787e9fc5962268c38"
     },
     {
       "title": "IMF《世界经济展望》2026年4月：全球经济处于战争阴影下",
@@ -89,24 +68,45 @@
       "notion_url": "https://www.notion.so/34ff9553c57081878791d07ffe9ca12b"
     },
     {
-      "title": "IMF博客：中东战争挑战全球金融稳定",
-      "date": "2026-04-14",
-      "source": "IMF",
-      "category": "国际金融",
+      "title": "SEC/CFTC联合提案：上调Form PF申报阈值并精简私募基金报送",
+      "date": "2026-04-20",
+      "source": "SEC",
+      "category": "监管政策",
       "importance": "中",
-      "summary": "市场表面有序但金融稳定风险抬升",
-      "impact": "IMF指出冲突冲击下资产价格重估与波动上行虽未导致市场失序，但不应将韧性视为稳态；更高能源价格与通胀不确定性可能通过利率、信用与流动性渠道放大金融脆弱性。该判断对风险控制与杠杆管理具有直接指引意义。",
-      "targets": "波动率、信用利差、杠杆资金、能源与通胀预期",
-      "direction": "利空",
+      "summary": "Form PF门槛$150m→$1b；大型对冲顾问门槛$1.5b→$10b",
+      "impact": "提案核心是显著提高申报门槛并精简报送字段，在保留系统性风险监测所需信息的同时降低合规成本。若按提案推进，受监管数据覆盖面、私募信贷识别口径与FSOC监测颗粒度可能发生结构性变化，需关注市场对信息透明度与监管取向的再定价。",
+      "targets": "私募基金管理人、私募信贷、对冲基金、监管合规成本、系统性风险监测",
+      "direction": "利多",
       "keywords": [
-        "IMF",
-        "金融稳定",
-        "地缘冲突",
-        "波动率"
+        "SEC",
+        "CFTC",
+        "Form PF",
+        "私募基金",
+        "合规"
       ],
       "follow_up": "是",
-      "link": "https://www.imf.org/en/blogs/articles/2026/04/14/war-in-the-middle-east-challenges-global-financial-stability",
-      "notion_url": "https://www.notion.so/34ff9553c570818787e9fc5962268c38"
+      "link": "https://www.sec.gov/newsroom/press-releases/2026-40-sec-cftc-jointly-propose-amendments-reduce-private-fund-reporting-burdens",
+      "notion_url": "https://www.notion.so/34ff9553c57081f2977ef799f12f0984"
+    },
+    {
+      "title": "美监管机构最终规则：社区银行杠杆率(CBLR)门槛9%下调至8%",
+      "date": "2026-04-23",
+      "source": "Federal Reserve Board / FDIC / OCC",
+      "category": "监管政策",
+      "importance": "中",
+      "summary": "CBLR门槛9%→8%，宽限期2季→4季",
+      "impact": "最终规则在不改变框架结构的情况下下调门槛并延长宽限期，降低社区银行采用简化资本计量的“门槛摩擦”，对中小银行资本管理与信贷供给边际友好。宏观上需关注在盈利与资产质量分化背景下，资本缓冲下降是否带来更高的信用周期敏感性。",
+      "targets": "美国社区银行、信贷供给、中小企业融资、银行监管资本框架",
+      "direction": "利多",
+      "keywords": [
+        "美国银行监管",
+        "资本充足率",
+        "社区银行",
+        "CBLR"
+      ],
+      "follow_up": "是",
+      "link": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260423a.htm",
+      "notion_url": "https://www.notion.so/34ff9553c570816ba2adf54161ac2c4e"
     },
     {
       "title": "SEC发布NRSRO年度工作人员报告（2025 OCR Staff Report）",

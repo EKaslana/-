@@ -1,7 +1,6 @@
 import "dotenv/config";
 import fs from "node:fs";
 import path from "node:path";
-import { Client } from "@notionhq/client";
 
 const ROOT = path.resolve(process.cwd());
 const SITE_DIR = path.join(ROOT, "site");
@@ -51,6 +50,129 @@ function getNotionToken() {
   const tokenPath = path.join(SITE_DIR, ".notion_token");
   if (fs.existsSync(tokenPath)) return fs.readFileSync(tokenPath, "utf8").trim();
   return "";
+}
+
+async function notionFetch(token, url, { method = "GET", body } = {}) {
+  const attempts = 4;
+  let lastError = null;
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      const res = await fetch(url, {
+        method,
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Notion-Version": "2022-06-28",
+          "Content-Type": "application/json",
+        },
+        body: body ? JSON.stringify(body) : undefined,
+      });
+      const text = await res.text();
+      if (!res.ok) {
+        throw new Error(`Notion API 请求失败：${res.status} ${res.statusText}\n${text}`);
+      }
+      return text ? JSON.parse(text) : {};
+    } catch (error) {
+      lastError = error;
+      if (attempt === attempts) break;
+      await new Promise((resolve) => setTimeout(resolve, attempt * 600));
+    }
+  }
+  throw lastError;
+}
+
+function createNotionClient(token) {
+  const base = "https://api.notion.com/v1";
+  return {
+    databases: {
+      retrieve: ({ database_id }) =>
+        notionFetch(token, `${base}/databases/${stripUuidDashes(database_id)}`),
+      query: ({ database_id, ...body }) =>
+        notionFetch(token, `${base}/databases/${stripUuidDashes(database_id)}/query`, {
+          method: "POST",
+          body,
+        }),
+    },
+    dataSources: {
+      retrieve: ({ data_source_id }) =>
+        notionFetch(token, `${base}/data_sources/${stripUuidDashes(data_source_id)}`),
+      query: ({ data_source_id, ...body }) =>
+        notionFetch(token, `${base}/data_sources/${stripUuidDashes(data_source_id)}/query`, {
+          method: "POST",
+          body,
+        }),
+    },
+    pages: {
+      create: (body) => notionFetch(token, `${base}/pages`, { method: "POST", body }),
+      update: ({ page_id, ...body }) =>
+        notionFetch(token, `${base}/pages/${stripUuidDashes(page_id)}`, {
+          method: "PATCH",
+          body,
+        }),
+    },
+    blocks: {
+      children: {
+        list: ({ block_id, page_size = 100, start_cursor }) => {
+          const url = new URL(`${base}/blocks/${stripUuidDashes(block_id)}/children`);
+          url.searchParams.set("page_size", String(page_size));
+          if (start_cursor) url.searchParams.set("start_cursor", start_cursor);
+          return notionFetch(token, url.toString());
+        },
+        append: ({ block_id, children }) =>
+          notionFetch(token, `${base}/blocks/${stripUuidDashes(block_id)}/children`, {
+            method: "PATCH",
+            body: { children },
+          }),
+      },
+      delete: ({ block_id }) =>
+        notionFetch(token, `${base}/blocks/${stripUuidDashes(block_id)}`, {
+          method: "DELETE",
+        }),
+    },
+  };
+}
+
+function normalizeEventShortName(title) {
+  return String(title ?? "")
+    .replace(/[：:]/g, " ")
+    .replace(/[()（）]/g, " ")
+    .replace(/[^\p{L}\p{N}\s-]+/gu, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, 80);
+}
+
+function inferImpactScope(event) {
+  const text = `${event.targets ?? ""} ${event.category ?? ""} ${event.source ?? ""}`;
+  if (/全球|国际|global/i.test(text)) return "全球";
+  if (/中国|人民币|A股|央行|境内/.test(text)) return "中国";
+  if (event.category === "重点公司") return "个股";
+  return "行业";
+}
+
+function inferObjectTags(event) {
+  if (Array.isArray(event.object_tags) && event.object_tags.length > 0) {
+    return event.object_tags.map((x) => String(x).trim()).filter(Boolean);
+  }
+  if (Array.isArray(event.keywords) && event.keywords.length > 0) {
+    return event.keywords.map((x) => String(x).trim()).filter(Boolean).slice(0, 5);
+  }
+  return [];
+}
+
+function normalizePayloadForNotion(payload) {
+  const normalized = { ...payload };
+  normalized.events = (payload.events || []).map((event) => {
+    const category = String(event.category || "未分类").trim() || "未分类";
+    const shortName = normalizeEventShortName(event.title);
+    return {
+      ...event,
+      category,
+      impact_scope: event.impact_scope || inferImpactScope(event),
+      object_tags: inferObjectTags(event),
+      dedupe_key: event.dedupe_key || `${payload.date}|${category}|${shortName}`,
+    };
+  });
+  return normalized;
 }
 
 function richText(content) {
@@ -116,9 +238,23 @@ function getDbTitlePropName(db) {
 async function getDatabaseAndDataSource(notion, databaseId) {
   const database = await notion.databases.retrieve({ database_id: databaseId });
   const dsId = database?.data_sources?.[0]?.id;
-  if (!dsId) throw new Error(`数据库 ${databaseId} 缺少 data_sources，无法继续。`);
+  if (!dsId) {
+    return {
+      database,
+      dataSourceId: null,
+      dataSource: database,
+      parent: { database_id: stripUuidDashes(databaseId) },
+      query: (body) => notion.databases.query({ database_id: databaseId, ...body }),
+    };
+  }
   const dataSource = await notion.dataSources.retrieve({ data_source_id: dsId });
-  return { database, dataSourceId: dsId, dataSource };
+  return {
+    database,
+    dataSourceId: dsId,
+    dataSource,
+    parent: { data_source_id: dsId },
+    query: (body) => notion.dataSources.query({ data_source_id: dsId, ...body }),
+  };
 }
 
 async function listAllChildBlocks(notion, blockId) {
@@ -262,7 +398,7 @@ async function clearPageBlocks(notion, pageId) {
 }
 
 async function upsertDailyPage(notion, dailyDbId, payload) {
-  const { database: db, dataSourceId: dsId, dataSource: ds } = await getDatabaseAndDataSource(
+  const { database: db, dataSource: ds, parent, query } = await getDatabaseAndDataSource(
     notion,
     dailyDbId,
   );
@@ -274,13 +410,12 @@ async function upsertDailyPage(notion, dailyDbId, payload) {
 
   const titlePropName = getDbTitlePropName(ds);
 
-  const query = await notion.dataSources.query({
-    data_source_id: dsId,
+  const queryResult = await query({
     page_size: 20,
     filter: { property: "日报日期", date: { equals: payload.date } },
   });
 
-  const results = query.results || [];
+  const results = queryResult.results || [];
   let page = null;
   if (results.length === 1) {
     page = results[0];
@@ -312,7 +447,7 @@ async function upsertDailyPage(notion, dailyDbId, payload) {
 
   if (!page) {
     const created = await notion.pages.create({
-      parent: { data_source_id: dsId },
+      parent,
       properties: dailyProps,
     });
     return { db, ds, page: created };
@@ -323,7 +458,7 @@ async function upsertDailyPage(notion, dailyDbId, payload) {
 }
 
 async function upsertEventPages(notion, eventDbId, dailyPageId, events) {
-  const { database: db, dataSourceId: dsId, dataSource: ds } = await getDatabaseAndDataSource(
+  const { database: db, dataSource: ds, parent, query } = await getDatabaseAndDataSource(
     notion,
     eventDbId,
   );
@@ -345,13 +480,12 @@ async function upsertEventPages(notion, eventDbId, dailyPageId, events) {
       ],
     };
 
-    const query = await notion.dataSources.query({
-      data_source_id: dsId,
+    const queryResult = await query({
       page_size: 5,
       filter,
     });
 
-    const existing = (query.results || [])[0] || null;
+    const existing = (queryResult.results || [])[0] || null;
 
     const props = {};
     setProp(props, dbProps, titlePropName, e.title);
@@ -377,7 +511,7 @@ async function upsertEventPages(notion, eventDbId, dailyPageId, events) {
       page = await notion.pages.update({ page_id: existing.id, properties: props });
     } else {
       page = await notion.pages.create({
-        parent: { data_source_id: dsId },
+        parent,
         properties: props,
       });
     }
@@ -449,38 +583,39 @@ async function main() {
     payload.reportMarkdown = payload.reportMarkdown.map((x) => String(x ?? "")).join("\n");
   }
   if (payload.date !== args.date) throw new Error("payload.date 与 --date 不一致");
+  const normalizedPayload = normalizePayloadForNotion(payload);
 
   const token = getNotionToken();
   if (!token) throw new Error("缺少 Notion Token：请设置 NOTION_TOKEN 或提供 site/.notion_token");
 
-  const notion = new Client({ auth: token });
+  const notion = createNotionClient(token);
   const dailyDbId = process.env.NOTION_DAILY_DB_ID || DEFAULT_DAILY_DB_ID;
   const eventDbId = process.env.NOTION_EVENT_DB_ID || DEFAULT_EVENT_DB_ID;
 
-  const aggregates = computeAggregates(payload.date, payload.events || []);
-  payload.categories = aggregates.categories;
-  payload.maxImportance = aggregates.maxImportance;
-  payload.marketBias = aggregates.marketBias;
-  payload.eventCount = aggregates.eventCount;
-  payload.highCount = aggregates.highCount;
-  payload.followCount = aggregates.followCount;
-  payload.keyObjects = aggregates.objectTags.join("、");
-  payload.mainSources = aggregates.sources.join("、");
-  payload.watchpointsText = aggregates.watchpoints.map((x, i) => `${i + 1}. ${x}`).join("\n");
+  const aggregates = computeAggregates(normalizedPayload.date, normalizedPayload.events || []);
+  normalizedPayload.categories = aggregates.categories;
+  normalizedPayload.maxImportance = aggregates.maxImportance;
+  normalizedPayload.marketBias = aggregates.marketBias;
+  normalizedPayload.eventCount = aggregates.eventCount;
+  normalizedPayload.highCount = aggregates.highCount;
+  normalizedPayload.followCount = aggregates.followCount;
+  normalizedPayload.keyObjects = aggregates.objectTags.join("、");
+  normalizedPayload.mainSources = aggregates.sources.join("、");
+  normalizedPayload.watchpointsText = aggregates.watchpoints.map((x, i) => `${i + 1}. ${x}`).join("\n");
 
-  const top = (payload.events || []).slice(0, 5);
-  payload.todayFocus = top.map((e) => `【${e.category}】${e.summary}`).join("；");
+  const top = (normalizedPayload.events || []).slice(0, 5);
+  normalizedPayload.todayFocus = top.map((e) => `【${e.category}】${e.summary}`).join("；");
 
-  const daily = await upsertDailyPage(notion, dailyDbId, payload);
+  const daily = await upsertDailyPage(notion, dailyDbId, normalizedPayload);
   const dailyPageId = daily.page.id;
   const dailyUrl = notionPageUrl(dailyPageId);
 
   // Replace daily page body (idempotent)
   await clearPageBlocks(notion, dailyPageId);
-  const blocks = markdownToNotionBlocks(payload.reportMarkdown);
+  const blocks = markdownToNotionBlocks(normalizedPayload.reportMarkdown);
   await appendBlocksChunked(notion, dailyPageId, blocks);
 
-  const eventResult = await upsertEventPages(notion, eventDbId, dailyPageId, payload.events || []);
+  const eventResult = await upsertEventPages(notion, eventDbId, dailyPageId, normalizedPayload.events || []);
 
   // Back-fill daily <-> events relation if present
   const dailyDbProps = daily.ds.properties || {};
@@ -493,12 +628,12 @@ async function main() {
   // Write site day json (this run is the only source of truth)
   ensureDir(DATA_DIR);
   const dayJson = {
-    date: payload.date,
-    title: payload.title,
-    summary: payload.summary,
+    date: normalizedPayload.date,
+    title: normalizedPayload.title,
+    summary: normalizedPayload.summary,
     notion_url: dailyUrl,
-    reportMarkdown: payload.reportMarkdown,
-    events: (payload.events || []).map((e, i) => ({
+    reportMarkdown: normalizedPayload.reportMarkdown,
+    events: (normalizedPayload.events || []).map((e, i) => ({
       title: e.title,
       date: e.date,
       source: e.source,
@@ -515,12 +650,15 @@ async function main() {
     })),
   };
 
-  writeJson(path.join(DATA_DIR, `${payload.date}.json`), dayJson);
+  writeJson(path.join(DATA_DIR, `${normalizedPayload.date}.json`), dayJson);
 
-  console.log(`Notion upsert done. Daily: ${dailyUrl} Events: ${eventResult.pages.length} JSON: ${path.join(DATA_DIR, `${payload.date}.json`)}`);
+  console.log(`Notion upsert done. Daily: ${dailyUrl} Events: ${eventResult.pages.length} JSON: ${path.join(DATA_DIR, `${normalizedPayload.date}.json`)}`);
 }
 
 main().catch((err) => {
   console.error(err?.stack || String(err));
+  if (err?.cause) {
+    console.error("CAUSE:", err.cause?.stack || err.cause);
+  }
   process.exit(1);
 });
