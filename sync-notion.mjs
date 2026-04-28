@@ -43,6 +43,23 @@ function writeJson(filePath, obj) {
   fs.writeFileSync(filePath, JSON.stringify(obj, null, 2), "utf8");
 }
 
+function inferEditionFromTitle(title) {
+  return String(title ?? "").includes("中国版") ? "china" : "international";
+}
+
+function normalizeEdition(rawEdition, title = "", slug = "") {
+  const raw = String(rawEdition ?? "").trim().toLowerCase();
+  const titleText = String(title ?? "");
+  const slugText = String(slug ?? "").toLowerCase();
+  if (raw === "china" || raw === "cn" || raw === "中国版") return "china";
+  if (titleText.includes("中国版") || slugText.endsWith("-china") || slugText.endsWith("-cn")) return "china";
+  return "international";
+}
+
+function buildDayFileName(date, edition) {
+  return normalizeEdition(edition) === "china" ? `${date}-china.json` : `${date}.json`;
+}
+
 function stripUuidDashes(id) {
   return String(id).replaceAll("-", "");
 }
@@ -301,6 +318,7 @@ async function main() {
     if (!date) continue;
 
     const title = getText(dp, "日报标题") || dp?.properties?.title?.title?.[0]?.plain_text || `金融日报 ${date}`;
+    const edition = inferEditionFromTitle(title);
     const summary = getText(dp, "日报摘要");
 
     const reportMarkdown = await fetchPageBlocksMarkdown(stripUuidDashes(dp.id));
@@ -362,6 +380,7 @@ async function main() {
 
     const dayJson = {
       date,
+      edition,
       title,
       summary,
       notion_url: pageUrl(dp.id),
@@ -369,7 +388,7 @@ async function main() {
       events,
     };
 
-    writeJson(path.join(DATA_DIR, `${date}.json`), dayJson);
+    writeJson(path.join(DATA_DIR, buildDayFileName(date, edition)), dayJson);
     written += 1;
   }
 

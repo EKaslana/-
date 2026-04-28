@@ -52,6 +52,23 @@ function getNotionToken() {
   return "";
 }
 
+function inferEditionFromTitle(title) {
+  return String(title ?? "").includes("中国版") ? "china" : "international";
+}
+
+function normalizeEdition(rawEdition, title = "", slug = "") {
+  const raw = String(rawEdition ?? "").trim().toLowerCase();
+  const titleText = String(title ?? "");
+  const slugText = String(slug ?? "").toLowerCase();
+  if (raw === "china" || raw === "cn" || raw === "中国版") return "china";
+  if (titleText.includes("中国版") || slugText.endsWith("-china") || slugText.endsWith("-cn")) return "china";
+  return "international";
+}
+
+function buildDayFileName(date, edition) {
+  return normalizeEdition(edition) === "china" ? `${date}-china.json` : `${date}.json`;
+}
+
 async function notionFetch(token, url, { method = "GET", body } = {}) {
   const attempts = 4;
   let lastError = null;
@@ -161,6 +178,7 @@ function inferObjectTags(event) {
 
 function normalizePayloadForNotion(payload) {
   const normalized = { ...payload };
+  normalized.edition = normalizeEdition(payload.edition, payload.title, payload.slug);
   normalized.events = (payload.events || []).map((event) => {
     const category = String(event.category || "未分类").trim() || "未分类";
     const shortName = normalizeEventShortName(event.title);
@@ -416,17 +434,21 @@ async function upsertDailyPage(notion, dailyDbId, payload) {
   });
 
   const results = queryResult.results || [];
-  let page = null;
-  if (results.length === 1) {
+  const exactMatch = results.find((p) => {
+    const props = p.properties || {};
+    const t1 = props["日报标题"]?.rich_text?.map((x) => x.plain_text).join("") || "";
+    const t2 = props[titlePropName]?.title?.map((x) => x.plain_text).join("") || "";
+    return t1 === payload.title || t2 === payload.title;
+  });
+
+  let page = exactMatch || null;
+  if (!page && results.length === 1 && normalizeEdition(payload.edition, payload.title) === "international") {
     page = results[0];
-  } else if (results.length > 1) {
-    const prefer = results.find((p) => {
-      const props = p.properties || {};
-      const t1 = props["日报标题"]?.rich_text?.map((x) => x.plain_text).join("") || "";
-      const t2 = props[titlePropName]?.title?.map((x) => x.plain_text).join("") || "";
-      return t1 === payload.title || t2 === payload.title;
-    });
-    page = prefer || results[0];
+  } else if (!page && results.length > 1 && normalizeEdition(payload.edition, payload.title) === "international") {
+    page = results.find((p) => inferEditionFromTitle(
+      (p.properties?.["日报标题"]?.rich_text?.map((x) => x.plain_text).join("") || "")
+      || (p.properties?.[titlePropName]?.title?.map((x) => x.plain_text).join("") || ""),
+    ) === "international") || null;
   }
 
   const dailyProps = {};
@@ -629,6 +651,7 @@ async function main() {
   ensureDir(DATA_DIR);
   const dayJson = {
     date: normalizedPayload.date,
+    edition: normalizedPayload.edition,
     title: normalizedPayload.title,
     summary: normalizedPayload.summary,
     notion_url: dailyUrl,
@@ -650,9 +673,9 @@ async function main() {
     })),
   };
 
-  writeJson(path.join(DATA_DIR, `${normalizedPayload.date}.json`), dayJson);
+  writeJson(path.join(DATA_DIR, buildDayFileName(normalizedPayload.date, normalizedPayload.edition)), dayJson);
 
-  console.log(`Notion upsert done. Daily: ${dailyUrl} Events: ${eventResult.pages.length} JSON: ${path.join(DATA_DIR, `${normalizedPayload.date}.json`)}`);
+  console.log(`Notion upsert done. Daily: ${dailyUrl} Events: ${eventResult.pages.length} JSON: ${path.join(DATA_DIR, buildDayFileName(normalizedPayload.date, normalizedPayload.edition))}`);
 }
 
 main().catch((err) => {

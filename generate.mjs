@@ -21,6 +21,41 @@ function writeText(filePath, content) {
   fs.writeFileSync(filePath, content, "utf8");
 }
 
+const EDITION_META = {
+  international: { key: "international", label: "国际版", kicker: "FINANCE DAILY · INTERNATIONAL", sort: 0 },
+  china: { key: "china", label: "中国版", kicker: "FINANCE DAILY · CHINA", sort: 1 },
+};
+
+function normalizeEdition(rawEdition, title = "", slug = "") {
+  const raw = String(rawEdition ?? "").trim().toLowerCase();
+  const titleText = String(title ?? "");
+  const slugText = String(slug ?? "").toLowerCase();
+  if (raw === "china" || raw === "cn" || raw === "中国版") return "china";
+  if (titleText.includes("中国版") || slugText.endsWith("-china") || slugText.endsWith("-cn")) return "china";
+  return "international";
+}
+
+function getEditionMeta(edition) {
+  return EDITION_META[normalizeEdition(edition)] || EDITION_META.international;
+}
+
+function compareDays(a, b) {
+  const dateOrder = String(b.date ?? "").localeCompare(String(a.date ?? ""));
+  if (dateOrder !== 0) return dateOrder;
+  return getEditionMeta(a.edition).sort - getEditionMeta(b.edition).sort;
+}
+
+function decorateDay(day, filePath) {
+  const slug = String(day.slug || path.basename(filePath, ".json")).trim();
+  const edition = normalizeEdition(day.edition, day.title, slug);
+  return {
+    ...day,
+    slug,
+    edition,
+    editionLabel: getEditionMeta(edition).label,
+  };
+}
+
 function escapeHtml(input) {
   return String(input)
     .replaceAll("&", "&amp;")
@@ -599,22 +634,76 @@ function renderIndex(days) {
     cssHref: "./assets/styles.css",
     homeHref: "./index.html",
     dayHrefPrefix: "./days/",
+    editionFilter: "all",
+    indexHref: "./index.html",
+    editionHrefPrefix: "./",
   });
 }
 
-function renderIndexWithConfig(days, { cssHref, homeHref, dayHrefPrefix }) {
-  const cards = days
-    .map((d) => {
-      const stats = computeStats(d);
-      const breakdown = computeBreakdowns(d);
-      const palette = chartColors();
-      const href = `${dayHrefPrefix}${encodeURIComponent(d.date)}.html`;
-      const catText = stats.categories.slice(0, 4).join(" · ");
-      const impBar = renderStackBar(breakdown.importance, { width: 280, height: 10, colors: palette.importance });
-      return `<a class="card" href="${href}">
+function renderIndexWithConfig(days, { cssHref, homeHref, dayHrefPrefix, editionFilter = "all", indexHref = "./index.html", editionHrefPrefix = "./" }) {
+  const palette = chartColors();
+  const recentDateLimit = 7;
+  const currentEdition = editionFilter === "all" ? "all" : normalizeEdition(editionFilter);
+  const visibleDays = currentEdition === "all" ? days : days.filter((d) => normalizeEdition(d.edition) === currentEdition);
+
+  function buildDayHref(day) {
+    return `${dayHrefPrefix}${encodeURIComponent(day.slug || day.date)}.html`;
+  }
+
+  function findLatestDay(edition) {
+    return visibleDays.find((item) => normalizeEdition(item.edition) === normalizeEdition(edition)) || null;
+  }
+
+  function buildEditionHref(edition) {
+    if (edition === "international") return `${editionHrefPrefix}international.html`;
+    if (edition === "china") return `${editionHrefPrefix}china.html`;
+    return indexHref;
+  }
+
+  function renderEditionSelector() {
+    const items = ["international", "china"]
+      .map((edition) => {
+        const meta = getEditionMeta(edition);
+        const active = currentEdition === edition ? " edition-link--active" : "";
+        const desc = edition === "international" ? "查看全球金融事件目录" : "查看中国金融事件目录";
+        return `<a class="edition-link${active}" href="${escapeHtml(buildEditionHref(edition))}">
+  <div class="edition-link__k">${escapeHtml(meta.kicker)}</div>
+  <div class="edition-link__title">${escapeHtml(meta.label)}</div>
+  <div class="edition-link__desc">${escapeHtml(desc)}</div>
+</a>`;
+      })
+      .join("\n");
+
+    const backLink =
+      currentEdition === "all"
+        ? ""
+        : `<a class="mini-link edition-panel__back" href="${escapeHtml(indexHref)}">返回综合目录</a>`;
+
+    return `<aside class="edition-panel">
+  <div class="edition-panel__k">EDITION</div>
+  <div class="edition-panel__title">版本目录</div>
+  <div class="edition-panel__desc">点击进入国际版或中国版各自目录。</div>
+  <div class="edition-panel__grid">
+    ${items}
+  </div>
+  ${backLink}
+</aside>`;
+  }
+
+  function renderCard(d) {
+    const stats = computeStats(d);
+    const breakdown = computeBreakdowns(d);
+    const href = buildDayHref(d);
+    const catText = stats.categories.slice(0, 4).join(" · ");
+    const impBar = renderStackBar(breakdown.importance, { width: 280, height: 10, colors: palette.importance });
+    const editionMeta = getEditionMeta(d.edition);
+    return `<a class="card" href="${href}">
   <div class="card__top">
-    <div class="card__k">FINANCE DAILY</div>
-    <div class="badge">${escapeHtml(d.date)}</div>
+    <div class="card__k">${escapeHtml(editionMeta.kicker)}</div>
+    <div class="card__meta">
+      <div class="badge">${escapeHtml(editionMeta.label)}</div>
+      <div class="badge">${escapeHtml(d.date)}</div>
+    </div>
   </div>
   <div class="card__title">${escapeHtml(d.title ?? `金融日报 ${d.date}`)}</div>
   <div class="card__desc">${escapeHtml(d.summary ?? "")}</div>
@@ -634,10 +723,127 @@ function renderIndexWithConfig(days, { cssHref, homeHref, dayHrefPrefix }) {
     <div class="chip">${escapeHtml(stats.highestImportance)} 级</div>
   </div>
 </a>`;
-    })
-    .join("\n");
+  }
 
-  const totals = days.reduce(
+  function renderLatestCard(edition) {
+    const editionMeta = getEditionMeta(edition);
+    const day = findLatestDay(editionMeta.key);
+    if (!day) {
+      return `<div class="card card--placeholder">
+  <div class="card__top">
+    <div class="card__k">${escapeHtml(editionMeta.kicker)}</div>
+    <div class="badge">${escapeHtml(editionMeta.label)}</div>
+  </div>
+  <div class="card__title">待生成</div>
+  <div class="card__desc">当前尚未生成该版本日报。后续批次写入对应 JSON 后会自动出现在这里。</div>
+</div>`;
+    }
+    return renderCard(day);
+  }
+
+  function extractHighlightItems(day) {
+    const sections = parseReportSections(day.reportMarkdown ?? "");
+    const focus = sections.find((s) => String(s.title ?? "").trim() === "今日重点");
+    const items = Array.isArray(focus?.items) ? focus.items.slice(0, 2) : [];
+    if (items.length > 0) {
+      return items.map((it) => {
+        const { tag, body } = splitTagAndBody(it.text);
+        const parts = tag ? tag.split("｜").map((s) => s.trim()) : [];
+        const pill = parts.filter(Boolean).join(" · ");
+        const { title, desc } = deriveTitleAndDesc(body);
+        return { pill, title: title || body, desc };
+      });
+    }
+    return [{ pill: "", title: day.summary || "暂无今日重点", desc: "" }];
+  }
+
+  function renderHighlightCard(day) {
+    const editionMeta = getEditionMeta(day.edition);
+    const href = buildDayHref(day);
+    const items = extractHighlightItems(day);
+    const list = items
+      .map((item) => `<article class="hero-highlight__item">
+  ${item.pill ? `<div class="hero-highlight__pill">${escapeHtml(item.pill)}</div>` : ""}
+  <div class="hero-highlight__item-title">${escapeHtml(item.title)}</div>
+  ${item.desc ? `<div class="hero-highlight__item-desc">${escapeHtml(item.desc)}</div>` : ""}
+</article>`)
+      .join("\n");
+
+    return `<a class="hero-highlight" href="${href}">
+  <div class="hero-highlight__top">
+    <div class="hero-highlight__k">${escapeHtml(editionMeta.kicker)}</div>
+    <div class="badge">${escapeHtml(day.date)}</div>
+  </div>
+  <div class="hero-highlight__title">${escapeHtml(editionMeta.label)}今日重点</div>
+  <div class="hero-highlight__items">
+    ${list}
+  </div>
+  <div class="hero-highlight__foot">查看当日详情</div>
+</a>`;
+  }
+
+  function renderHeroHighlights() {
+    const targetEditions = currentEdition === "all" ? ["international", "china"] : [currentEdition];
+    const gridClass = targetEditions.length === 1 ? "hero-highlights__grid hero-highlights__grid--single" : "hero-highlights__grid";
+    const cards = targetEditions
+      .map((edition) => {
+        const day = findLatestDay(edition);
+        if (!day) {
+          const meta = getEditionMeta(edition);
+          return `<div class="hero-highlight hero-highlight--placeholder">
+  <div class="hero-highlight__top">
+    <div class="hero-highlight__k">${escapeHtml(meta.kicker)}</div>
+    <div class="badge">${escapeHtml(meta.label)}</div>
+  </div>
+  <div class="hero-highlight__title">${escapeHtml(meta.label)}今日重点</div>
+  <div class="hero-highlight__items">
+    <article class="hero-highlight__item">
+      <div class="hero-highlight__item-title">待生成</div>
+      <div class="hero-highlight__item-desc">当前版本还没有最新日报，后续批次写入后会自动出现在这里。</div>
+    </article>
+  </div>
+</div>`;
+        }
+        return renderHighlightCard(day);
+      })
+      .join("\n");
+
+    return `<div class="hero-highlights">
+  <div class="hero-highlights__head">
+    <div class="hero-highlights__k">TODAY'S HIGHLIGHTS</div>
+    <div class="hero-highlights__title">今日重点</div>
+  </div>
+  <div class="${gridClass}">
+    ${cards}
+  </div>
+</div>`;
+  }
+
+  function renderArchiveRow(d) {
+    const editionMeta = getEditionMeta(d.edition);
+    const href = buildDayHref(d);
+    return `<a class="archive-row" href="${href}">
+  <div class="archive-row__date">${escapeHtml(d.date)}</div>
+  <div class="archive-row__meta">
+    <span class="badge">${escapeHtml(editionMeta.label)}</span>
+  </div>
+</a>`;
+  }
+
+  const latestCards =
+    currentEdition === "all"
+      ? [renderLatestCard("international"), renderLatestCard("china")].join("\n")
+      : (visibleDays[0] ? renderCard(visibleDays[0]) : "");
+  const recentDates = [];
+  for (const day of visibleDays) {
+    if (!recentDates.includes(day.date)) recentDates.push(day.date);
+    if (recentDates.length >= recentDateLimit) break;
+  }
+  const recentDateSet = new Set(recentDates);
+  const recentCards = visibleDays.filter((d) => recentDateSet.has(d.date)).map((d) => renderCard(d)).join("\n");
+  const archiveRows = visibleDays.filter((d) => !recentDateSet.has(d.date)).map((d) => renderArchiveRow(d)).join("\n");
+
+  const totals = visibleDays.reduce(
     (acc, d) => {
       const s = computeStats(d);
       acc.days += 1;
@@ -649,13 +855,29 @@ function renderIndexWithConfig(days, { cssHref, homeHref, dayHrefPrefix }) {
     { days: 0, events: 0, high: 0, follow: 0 },
   );
 
-  const series = days
+  const series = visibleDays
     .slice()
-    .sort((a, b) => a.date.localeCompare(b.date))
+    .sort((a, b) => String(a.date ?? "").localeCompare(String(b.date ?? "")))
     .map((d) => {
       const s = computeStats(d);
       return { date: d.date, events: s.eventCount, high: s.highCount, follow: s.followCount };
     });
+
+  const titleText =
+    currentEdition === "international"
+      ? "金融日报 国际版目录"
+      : currentEdition === "china"
+        ? "金融日报 中国版目录"
+        : "金融日报 目录";
+  const currentLabel = currentEdition === "all" ? "综合目录" : getEditionMeta(currentEdition).label;
+  const latestSectionTitle = currentEdition === "all" ? "最新目录" : "最新一期";
+  const latestSectionKicker = currentEdition === "all" ? "LATEST" : "LATEST ISSUE";
+  const pageDescription =
+    currentEdition === "international"
+      ? "国际版金融日报静态目录"
+      : currentEdition === "china"
+        ? "中国版金融日报静态目录"
+        : "金融日报静态目录";
 
   const trend =
     series.length >= 2
@@ -697,13 +919,19 @@ function renderIndexWithConfig(days, { cssHref, homeHref, dayHrefPrefix }) {
 
   const body = `
     <section class="hero">
-      <div class="hero__pill">FINANCE DAILY DIRECTORY</div>
-      <h1 class="hero__title">金融日报 目录</h1>
-      <p class="hero__desc">目录页按卡片展示每个“日期”。后续只需新增一个日期 JSON 文件，重新运行生成脚本后会自动新增一张卡片和对应详情页。</p>
-      <div class="hero__meta">
-        <span>记录源：<code>site/data/days</code></span>
-        <span>卡片数量：<strong>${escapeHtml(totals.days)}</strong></span>
-        <span>输出目录：<code>site/dist</code></span>
+      <div class="hero__head">
+        <div class="hero__main">
+          <div class="hero__pill">FINANCE DAILY DIRECTORY</div>
+          <h1 class="hero__title">${escapeHtml(titleText)}</h1>
+          <div class="hero__meta">
+            <span>记录源：<code>site/data/days</code></span>
+            <span>卡片数量：<strong>${escapeHtml(totals.days)}</strong></span>
+            <span>当前目录：<strong>${escapeHtml(currentLabel)}</strong></span>
+            <span>输出目录：<code>site/dist</code></span>
+          </div>
+          ${renderHeroHighlights()}
+        </div>
+        ${renderEditionSelector()}
       </div>
       <div class="hero__kpis">
         <div class="kpi">
@@ -721,14 +949,30 @@ function renderIndexWithConfig(days, { cssHref, homeHref, dayHrefPrefix }) {
       </div>
       ${trend}
     </section>
-    <section class="cards">
-      ${cards || `<div class="empty">未发现任何日报数据：请在 <code>site/data/days</code> 新增 JSON。</div>`}
+    <section class="dir-section">
+      <div class="dir-section__head">
+        <div class="dir-section__k">${latestSectionKicker}</div>
+        <h2 class="dir-section__title">${latestSectionTitle}</h2>
+      </div>
+      <div class="cards cards--featured">
+        ${latestCards || `<div class="empty">当前版本暂无日报数据。</div>`}
+      </div>
+    </section>
+    <section class="dir-section">
+      <div class="dir-section__head">
+        <div class="dir-section__k">ARCHIVE</div>
+        <h2 class="dir-section__title">历史目录</h2>
+      </div>
+      <div class="cards">
+      ${recentCards || `<div class="empty">未发现任何日报数据：请在 <code>site/data/days</code> 新增 JSON。</div>`}
+      </div>
+      ${archiveRows ? `<div class="archive-list">${archiveRows}</div>` : ""}
     </section>
   `;
 
   return layout({
-    title: "金融日报 · 目录",
-    description: "金融日报静态目录",
+    title: currentEdition === "all" ? "金融日报 · 目录" : `${titleText} · 目录`,
+    description: pageDescription,
     body,
     cssHref,
     homeHref,
@@ -739,6 +983,7 @@ function renderDayPage(day, allDays, { homeHref = "../index.html" } = {}) {
   const stats = computeStats(day);
   const breakdown = computeBreakdowns(day);
   const palette = chartColors();
+  const editionMeta = getEditionMeta(day.edition);
   const parsedSections = parseReportSections(day.reportMarkdown ?? "");
   const sections = parsedSections.filter((s) => String(s.title ?? "").trim().toUpperCase() !== "JSON");
   const tocHtml = sections
@@ -802,6 +1047,7 @@ function renderDayPage(day, allDays, { homeHref = "../index.html" } = {}) {
       <div class="hero__pill">FINANCE DAILY</div>
       <h1 class="hero__title">${escapeHtml(day.title ?? `金融日报 ${day.date}`)}</h1>
       <div class="hero__meta">
+        <span>版本：<strong>${escapeHtml(editionMeta.label)}</strong></span>
         <span>日期：<strong>${escapeHtml(day.date)}</strong></span>
         <span>事件：<strong>${escapeHtml(stats.eventCount)}</strong></span>
         <span>高重要：<strong>${escapeHtml(stats.highCount)}</strong></span>
@@ -881,33 +1127,71 @@ function main() {
 
   const days = files
     .map((fp) => {
-      const day = readJson(fp);
+      const day = decorateDay(readJson(fp), fp);
       validateDay(day, fp);
       return day;
     })
-    .sort((a, b) => b.date.localeCompare(a.date));
+    .sort(compareDays);
 
   const distIndexHtml = renderIndexWithConfig(days, {
     cssHref: "./assets/styles.css",
     homeHref: "./index.html",
     dayHrefPrefix: "./days/",
+    editionFilter: "all",
+    indexHref: "./index.html",
+    editionHrefPrefix: "./",
   });
   writeText(path.join(DIST_DIR, "index.html"), distIndexHtml);
+  writeText(path.join(DIST_DIR, "international.html"), renderIndexWithConfig(days, {
+    cssHref: "./assets/styles.css",
+    homeHref: "./index.html",
+    dayHrefPrefix: "./days/",
+    editionFilter: "international",
+    indexHref: "./index.html",
+    editionHrefPrefix: "./",
+  }));
+  writeText(path.join(DIST_DIR, "china.html"), renderIndexWithConfig(days, {
+    cssHref: "./assets/styles.css",
+    homeHref: "./index.html",
+    dayHrefPrefix: "./days/",
+    editionFilter: "china",
+    indexHref: "./index.html",
+    editionHrefPrefix: "./",
+  }));
 
   if (rootIndexEnabled) {
     const rootIndexHtml = renderIndexWithConfig(days, {
       cssHref: "./site/dist/assets/styles.css",
       homeHref: "./index.html",
       dayHrefPrefix: "./site/dist/days/",
+      editionFilter: "all",
+      indexHref: "./index.html",
+      editionHrefPrefix: "./",
     });
     writeText(repoIndexPath, rootIndexHtml);
+    writeText(path.resolve(process.cwd(), "international.html"), renderIndexWithConfig(days, {
+      cssHref: "./site/dist/assets/styles.css",
+      homeHref: "./index.html",
+      dayHrefPrefix: "./site/dist/days/",
+      editionFilter: "international",
+      indexHref: "./index.html",
+      editionHrefPrefix: "./",
+    }));
+    writeText(path.resolve(process.cwd(), "china.html"), renderIndexWithConfig(days, {
+      cssHref: "./site/dist/assets/styles.css",
+      homeHref: "./index.html",
+      dayHrefPrefix: "./site/dist/days/",
+      editionFilter: "china",
+      indexHref: "./index.html",
+      editionHrefPrefix: "./",
+    }));
   }
 
   for (const day of days) {
     const pageHtml = renderDayPage(day, days, {
       homeHref: rootIndexEnabled ? "../../../index.html" : "../index.html",
     });
-    writeText(path.join(DIST_DAYS_DIR, `${day.date}.html`), pageHtml);
+    writeText(path.join(DIST_DAYS_DIR, `${day.slug || day.date}.html`), pageHtml);
   }
 
   const css = fs.readFileSync(path.join(ROOT, "styles.css"), "utf8");
