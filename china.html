@@ -23,7 +23,7 @@
           <h1 class="hero__title">金融日报 中国版目录</h1>
           <div class="hero__meta">
             <span>记录源：<code>site/data/days</code></span>
-            <span>卡片数量：<strong>1</strong></span>
+            <span>卡片数量：<strong>2</strong></span>
             <span>当前目录：<strong>中国版</strong></span>
             <span>输出目录：<code>site/dist</code></span>
           </div>
@@ -33,22 +33,22 @@
     <div class="hero-highlights__title">今日重点</div>
   </div>
   <div class="hero-highlights__grid hero-highlights__grid--single">
-    <a class="hero-highlight" href="./site/dist/days/2026-04-28-china.html">
+    <a class="hero-highlight" href="./site/dist/days/2026-04-29-china.html">
   <div class="hero-highlight__top">
     <div class="hero-highlight__k">FINANCE DAILY · CHINA</div>
-    <div class="badge">2026-04-28</div>
+    <div class="badge">2026-04-29</div>
   </div>
   <div class="hero-highlight__title">中国版今日重点</div>
   <div class="hero-highlight__items">
     <article class="hero-highlight__item">
-  <div class="hero-highlight__pill">监管政策 · 中 · 利多</div>
-  <div class="hero-highlight__item-title">人民银行与外汇局上调部分银行境外贷款杠杆率</div>
-  <div class="hero-highlight__item-desc">提升跨境信贷供给上限，对“走出去”企业融资与跨境资金安排偏友好。</div>
+  <div class="hero-highlight__pill">监管政策 · 高 · 利多</div>
+  <div class="hero-highlight__item-title">证监会允许合格境外投资者自2026-04-24起参与国债期货交易（限套保）：补齐境外机构利率风险管理工具</div>
+  <div class="hero-highlight__item-desc">有助于提升人民币债券吸引力与资金稳定性。</div>
 </article>
 <article class="hero-highlight__item">
-  <div class="hero-highlight__pill">宏观经济 · 高 · 中性</div>
-  <div class="hero-highlight__item-title">4月27日MLF缩量续作、当月净回笼2000亿元</div>
-  <div class="hero-highlight__item-desc">银行体系中期流动性边际支持减弱，资金利率与同业存单定价更依赖后续公开市场对冲。</div>
+  <div class="hero-highlight__pill">监管政策 · 高 · 中性</div>
+  <div class="hero-highlight__item-title">八部门发布《金融产品网络营销管理办法》（2026-09-30起实施）：统一规范金融产品线上营销与第三方平台服务边界</div>
+  <div class="hero-highlight__item-desc">强化消费者/投资者保护与合规要求。</div>
 </article>
   </div>
   <div class="hero-highlight__foot">查看当日详情</div>
@@ -78,18 +78,51 @@
       <div class="hero__kpis">
         <div class="kpi">
           <div class="kpi__k">事件总数</div>
-          <div class="kpi__v">5</div>
+          <div class="kpi__v">10</div>
         </div>
         <div class="kpi">
           <div class="kpi__k">高重要</div>
-          <div class="kpi__v">1</div>
+          <div class="kpi__v">3</div>
         </div>
         <div class="kpi">
           <div class="kpi__k">需跟踪</div>
-          <div class="kpi__v">4</div>
+          <div class="kpi__v">8</div>
         </div>
       </div>
       
+    <div class="trend" data-trend data-default-range="30" data-series='[{&quot;date&quot;:&quot;2026-04-28&quot;,&quot;events&quot;:5,&quot;high&quot;:1,&quot;follow&quot;:4},{&quot;date&quot;:&quot;2026-04-29&quot;,&quot;events&quot;:5,&quot;high&quot;:2,&quot;follow&quot;:4}]'>
+      <div class="trend__head">
+        <div>
+          <div class="trend__k">趋势</div>
+          <div class="trend__v"><span data-range-label>最近30天</span> · 事件（主线）/ 高重要（辅线）</div>
+        </div>
+        <div class="seg">
+          <button class="seg__btn" data-range="7">7天</button>
+          <button class="seg__btn" data-range="30">30天</button>
+          <button class="seg__btn" data-range="all">全部</button>
+        </div>
+      </div>
+      <div class="trend__wrap">
+        <div class="trend__tooltip" data-tooltip></div>
+        <svg viewBox="0 0 860 220" width="860" height="220" class="trend__svg" aria-label="趋势图">
+          <defs>
+            <linearGradient id="gMain" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0%" stop-color="rgba(47,129,247,0.26)"></stop>
+              <stop offset="100%" stop-color="rgba(47,129,247,0)"></stop>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="860" height="220" rx="14" fill="rgba(255,255,255,0.03)"></rect>
+          <path data-path-main fill="none" stroke="rgba(47,129,247,0.95)" stroke-width="2.2" stroke-linecap="round"></path>
+          <path data-path-alt fill="none" stroke="rgba(34,197,94,0.85)" stroke-width="2" stroke-dasharray="4 6" stroke-linecap="round"></path>
+          <g data-dots fill="rgba(47,129,247,0.95)"></g>
+        </svg>
+      </div>
+      <div class="trend__legend">
+        <span class="lg"><span class="lg__swatch" style="background:rgba(47,129,247,0.95)"></span>事件</span>
+        <span class="lg"><span class="lg__swatch" style="background:rgba(34,197,94,0.85)"></span>高重要</span>
+      </div>
+    </div>
+  
     </section>
     <section class="dir-section">
       <div class="dir-section__head">
@@ -97,19 +130,19 @@
         <h2 class="dir-section__title">最新一期</h2>
       </div>
       <div class="cards cards--featured">
-        <a class="card" href="./site/dist/days/2026-04-28-china.html">
+        <a class="card" href="./site/dist/days/2026-04-29-china.html">
   <div class="card__top">
     <div class="card__k">FINANCE DAILY · CHINA</div>
     <div class="card__meta">
       <div class="badge">中国版</div>
-      <div class="badge">2026-04-28</div>
+      <div class="badge">2026-04-29</div>
     </div>
   </div>
-  <div class="card__title">金融日报 2026-04-28（中国版）</div>
-  <div class="card__desc">中国版聚焦跨境融资杠杆率调整、MLF净回笼、央行流动性投放与外汇收支变化，信号集中在跨境资金、流动性定价与人民币预期。</div>
+  <div class="card__title">金融日报 2026-04-29（中国版）</div>
+  <div class="card__desc">中国版聚焦制度型开放（QFI可参与国债期货）、互联网金融产品网络营销新规、严打财务造假与交易制度优化征求意见；流动性层面关注公开市场逆回购操作。</div>
   <div class="card__bar"><svg class="spark" viewBox="0 0 280 10" width="280" height="10" role="img" aria-label="分布图">
   <rect x="0" y="0" width="280" height="10" rx="6" ry="6" fill="rgba(255,255,255,0.08)"></rect>
-  <rect x="0" y="0" width="56" height="10" rx="6" ry="6" fill="#ef4444" fill-opacity="0.9"></rect><rect x="56" y="0" width="168" height="10" rx="6" ry="6" fill="#f59e0b" fill-opacity="0.9"></rect><rect x="224" y="0" width="56" height="10" rx="6" ry="6" fill="#22c55e" fill-opacity="0.9"></rect>
+  <rect x="0" y="0" width="112" height="10" rx="6" ry="6" fill="#ef4444" fill-opacity="0.9"></rect><rect x="112" y="0" width="168" height="10" rx="6" ry="6" fill="#f59e0b" fill-opacity="0.9"></rect>
 </svg></div>
   <div class="stat-grid">
     <div class="stat">
@@ -118,11 +151,11 @@
     </div>
     <div class="stat">
       <div class="stat__k">需跟踪 / 高重要</div>
-      <div class="stat__v">4 / 1</div>
+      <div class="stat__v">4 / 2</div>
     </div>
   </div>
   <div class="card__foot">
-    <div class="card__tags">监管政策 · 宏观经济</div>
+    <div class="card__tags">监管政策 · 资本市场 · 宏观经济</div>
     <div class="chip">高 级</div>
   </div>
 </a>
@@ -134,7 +167,36 @@
         <h2 class="dir-section__title">历史目录</h2>
       </div>
       <div class="cards">
-      <a class="card" href="./site/dist/days/2026-04-28-china.html">
+      <a class="card" href="./site/dist/days/2026-04-29-china.html">
+  <div class="card__top">
+    <div class="card__k">FINANCE DAILY · CHINA</div>
+    <div class="card__meta">
+      <div class="badge">中国版</div>
+      <div class="badge">2026-04-29</div>
+    </div>
+  </div>
+  <div class="card__title">金融日报 2026-04-29（中国版）</div>
+  <div class="card__desc">中国版聚焦制度型开放（QFI可参与国债期货）、互联网金融产品网络营销新规、严打财务造假与交易制度优化征求意见；流动性层面关注公开市场逆回购操作。</div>
+  <div class="card__bar"><svg class="spark" viewBox="0 0 280 10" width="280" height="10" role="img" aria-label="分布图">
+  <rect x="0" y="0" width="280" height="10" rx="6" ry="6" fill="rgba(255,255,255,0.08)"></rect>
+  <rect x="0" y="0" width="112" height="10" rx="6" ry="6" fill="#ef4444" fill-opacity="0.9"></rect><rect x="112" y="0" width="168" height="10" rx="6" ry="6" fill="#f59e0b" fill-opacity="0.9"></rect>
+</svg></div>
+  <div class="stat-grid">
+    <div class="stat">
+      <div class="stat__k">事件总数</div>
+      <div class="stat__v">5</div>
+    </div>
+    <div class="stat">
+      <div class="stat__k">需跟踪 / 高重要</div>
+      <div class="stat__v">4 / 2</div>
+    </div>
+  </div>
+  <div class="card__foot">
+    <div class="card__tags">监管政策 · 资本市场 · 宏观经济</div>
+    <div class="chip">高 级</div>
+  </div>
+</a>
+<a class="card" href="./site/dist/days/2026-04-28-china.html">
   <div class="card__top">
     <div class="card__k">FINANCE DAILY · CHINA</div>
     <div class="card__meta">
@@ -168,7 +230,7 @@
     </section>
   
         <footer class="footer">
-          <div>生成于 2026-04-28T09:59:16.483Z</div>
+          <div>生成于 2026-04-29T01:49:28.542Z</div>
         </footer>
       </div>
     </div>

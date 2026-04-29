@@ -1,0 +1,114 @@
+{
+  "date": "2026-04-29",
+  "edition": "international",
+  "title": "金融日报 2026-04-29（国际版）",
+  "summary": "美联储4月FOMC进入决议窗口、阿联酋宣布5月1日退出OPEC、日银在能源冲击下按兵不动；政策与能源两条线同时抬高通胀与风险溢价不确定性。",
+  "notion_url": "https://www.notion.so/351f9553c570811583a5ce51641070da",
+  "reportMarkdown": "## 今日重点\n- 【国际金融｜高｜利空】阿联酋宣布将于2026-05-01退出OPEC：在能源供给受扰背景下，加剧供给协调不确定性，抬高油价波动与通胀风险溢价。\n- 【宏观经济｜高｜中性】美联储4月FOMC（2026-04-28至04-29）进入决议窗口：关注利率路径、通胀表述与金融条件变化，决定全球风险资产与美元定价锚。\n- 【宏观经济｜中｜中性】日本央行维持政策利率不变并发布季度展望：在能源价格冲击下，上调通胀预期、下调增长预期，体现“供给冲击+增长放缓”的两难格局。\n\n## 宏观与政策\n- 【监管政策｜中｜中性】美联储就FedNow允许使用中介机构转账（含跨境支付场景）征求意见：若落地将扩展即时支付生态与跨境支付路径，影响银行支付与清算竞争格局。\n- 【国际金融｜中｜中性】IMF完成对美国2026年第四条磋商：给出2026增长与通胀基准预测，并提示能源价格上行等风险，用于校准宏观假设与资产定价。\n\n## 市场动态\n- 推断：能源供给与政策预期同时进入敏感区间，短期波动主导；油价与通胀预期的二次传导是跨资产相关性变化的关键。\n\n## 金融机构与监管\n- 推断：若油价高位持续，金融机构在大宗商品相关敞口、航运/航空/化工链条信用风险与保证金管理上需要更高频风险审视。\n\n## 风险提示\n- OPEC格局变化与地缘风险叠加，可能导致油价在高波动区间运行，并向通胀与利率预期传导。\n- 若FOMC措辞较市场预期更偏鹰/鸽，利率与美元的再定价可能引发风险资产快速轮动。\n\n## 后续观察点\n1. 2026-04-29 FOMC声明/记者会：政策利率、通胀风险权衡与金融条件表述。\n2. 阿联酋退出OPEC后的供给与产量政策表态，以及OPEC+后续协调机制。\n3. 日银对能源冲击的容忍度与后续加息路径信号。\n4. FedNow规则征求意见进展与市场反馈（跨境支付与合规成本）。\n\n## JSON\n(由系统写入：结构化事件数组；此章节仅用于Notion与数据文件，HTML不得展示)",
+  "events": [
+    {
+      "title": "阿联酋宣布将于2026-05-01退出OPEC与OPEC+",
+      "date": "2026-04-28",
+      "source": "WAM / Associated Press",
+      "category": "国际金融",
+      "importance": "高",
+      "summary": "阿联酋5月1日退出OPEC",
+      "impact": "退出OPEC将削弱供给协调的确定性并提高政策博弈空间。在能源供给受扰与油价高波动背景下，市场更可能以更高风险溢价定价中期供需平衡与通胀路径。",
+      "targets": "原油与成品油、通胀预期、全球利率定价、能源密集行业",
+      "direction": "利空",
+      "keywords": [
+        "OPEC",
+        "UAE",
+        "油价",
+        "供给",
+        "通胀"
+      ],
+      "follow_up": "是",
+      "link": "https://www.arabnews.com/node/2641582/middle-east",
+      "notion_url": "https://www.notion.so/351f9553c570817ead18f3af084d2661"
+    },
+    {
+      "title": "美联储4月FOMC会议（2026-04-28至04-29）",
+      "date": "2026-04-29",
+      "source": "Federal Reserve",
+      "category": "宏观经济",
+      "importance": "高",
+      "summary": "4月FOMC在4月29日公布决议",
+      "impact": "FOMC决议与沟通将影响市场对通胀与增长权衡的定价，进而决定美元、全球利率曲线与风险资产的折现率锚。",
+      "targets": "美元、美国国债收益率曲线、全球风险资产、金融条件",
+      "direction": "中性",
+      "keywords": [
+        "FOMC",
+        "美联储",
+        "利率",
+        "美元",
+        "金融条件"
+      ],
+      "follow_up": "是",
+      "link": "https://www.federalreserve.gov/newsevents/2026-04.htm",
+      "notion_url": "https://www.notion.so/351f9553c57081cdaf92ecc1de5b2671"
+    },
+    {
+      "title": "日本央行维持政策利率0.75%并发布《经济与物价展望》",
+      "date": "2026-04-28",
+      "source": "AP / Bank of Japan",
+      "category": "宏观经济",
+      "importance": "中",
+      "summary": "日银按兵不动，强调能源冲击不确定性",
+      "impact": "能源价格冲击推升通胀但压制增长，日银维持利率不变反映“滞胀式供给冲击”下的政策两难；对日元、日债与全球套利链条的波动有放大作用。",
+      "targets": "日元、日债、全球套息交易、能源输入型经济体",
+      "direction": "中性",
+      "keywords": [
+        "BOJ",
+        "日本",
+        "能源",
+        "通胀",
+        "利率"
+      ],
+      "follow_up": "是",
+      "link": "https://apnews.com/article/30c80da1e1f2e96b70fa368d7f58cc19",
+      "notion_url": "https://www.notion.so/351f9553c5708197a7bacddfca1676bf"
+    },
+    {
+      "title": "美联储就FedNow允许使用中介机构转账（含跨境支付场景）征求意见",
+      "date": "2026-04-08",
+      "source": "Federal Reserve",
+      "category": "监管政策",
+      "importance": "中",
+      "summary": "FedNow拟允许中介机构参与转账",
+      "impact": "若规则调整落地，FedNow可覆盖更多私营部门用例并支持跨境支付链条中的国内段结算，可能改变银行间即时支付竞争格局与合规/运营模式。",
+      "targets": "美国银行与信用社、支付机构、跨境支付通道、清算与合规",
+      "direction": "中性",
+      "keywords": [
+        "FedNow",
+        "支付",
+        "跨境",
+        "规则征求意见"
+      ],
+      "follow_up": "是",
+      "link": "https://www.federalreserve.gov/newsevents/pressreleases/other20260408a.htm",
+      "notion_url": "https://www.notion.so/351f9553c570814099f6da7f5d32b027"
+    },
+    {
+      "title": "IMF完成对美国2026年第四条磋商（增长与通胀基准预测）",
+      "date": "2026-04-02",
+      "source": "IMF",
+      "category": "国际金融",
+      "importance": "中",
+      "summary": "IMF给出美国2026增长2.4%基准预测",
+      "impact": "IMF对美国增长、通胀与财政/外部平衡的基准预测可作为市场宏观假设校准点；其对能源价格上行风险的提示与当前油价波动形成呼应。",
+      "targets": "美国宏观预期、通胀路径、全球风险偏好",
+      "direction": "中性",
+      "keywords": [
+        "IMF",
+        "美国",
+        "增长",
+        "通胀",
+        "油价"
+      ],
+      "follow_up": "否",
+      "link": "https://www.imf.org/en/news/articles/2026/04/01/pr-26102-usa-imf-executive-board-concludes-2026-article-iv-consult",
+      "notion_url": "https://www.notion.so/351f9553c5708181bb7de9abe77168b0"
+    }
+  ]
+}
