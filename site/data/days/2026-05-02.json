@@ -1,0 +1,115 @@
+{
+  "date": "2026-05-02",
+  "edition": "international",
+  "title": "金融日报 2026-05-02（国际版）",
+  "summary": "美联储按兵不动且投票分歧扩大；美股刷新高点，油价高位波动压制通胀预期。",
+  "notion_url": "https://www.notion.so/354f9553c57081e6b846dc7ead6539d7",
+  "reportMarkdown": "## 今日重点\n- 【宏观经济】美联储维持联邦基金利率目标区间3.5%-3.75%，强调能源价格推升通胀、地缘冲突带来不确定性；政策分歧加大，市场对降息路径的确定性下降。\n- 【资本市场】标普500与纳指在5月1日收盘再创历史新高，科技股（以Apple为代表的财报驱动）继续成为风险偏好主线。\n- 【国际金融】原油在高波动下回落：WTI一度跌回100美元下方，但霍尔木兹海峡扰动仍使2026年油价中枢上修风险上行。\n\n## 宏观与政策\n- 美联储声明与实施说明显示：政策利率区间维持不变，同时继续通过操作框架维持资金市场稳定；高油价与不确定性使“数据依赖”权重上升。\n\n## 市场动态\n- 美股风险偏好延续，指数创新高；同时油价回落与美债收益率变化共同影响成长股估值弹性。\n\n## 金融机构与监管\n-（本期未新增高信号全球监管执法条目；如需可扩展到SEC当周执法与大型银行风险事件。）\n\n## 风险提示\n- 油价与地缘冲突对通胀的二次传导，可能改变主要央行政策预期并放大跨资产波动。\n\n## 后续观察点\n1. 下一份美国就业与通胀数据对政策路径的再定价。\n2. 霍尔木兹海峡航运与供给扰动持续性，以及油价对信用利差/权益估值的传导。\n3. 大型科技公司财报与指引能否继续支撑指数上行。\n\n## JSON\n（以下为结构化事件数组，供 Notion 与数据文件使用）\n",
+  "events": [
+    {
+      "title": "美联储维持政策利率区间3.5%-3.75%（投票分歧扩大）",
+      "date": "2026-04-29",
+      "source": "Federal Reserve",
+      "category": "宏观经济",
+      "importance": "高",
+      "summary": "FOMC按兵不动且分歧扩大",
+      "impact": "利率维持不变但内部偏好分化，叠加能源价格推升通胀与地缘不确定性，提升政策路径与风险资产定价的不确定性。",
+      "targets": "美元利率曲线、全球风险资产估值、能源与通胀敏感资产",
+      "direction": "中性",
+      "keywords": [
+        "FOMC",
+        "利率",
+        "通胀",
+        "能源价格",
+        "政策分歧"
+      ],
+      "follow_up": "是",
+      "link": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260429a.htm",
+      "notion_url": "https://www.notion.so/354f9553c57081f4a33dc2a2f880cdb2"
+    },
+    {
+      "title": "标普500与纳指创历史新高（5月1日收盘）",
+      "date": "2026-05-01",
+      "source": "Reuters",
+      "category": "资本市场",
+      "importance": "中",
+      "summary": "美股创新高延续周度涨势",
+      "impact": "风险偏好延续并压缩风险溢价；若油价回落与盈利韧性持续，成长股估值弹性仍占优，但高位更依赖后续数据与盈利兑现。",
+      "targets": "美股指数、科技板块、全球风险偏好与跨市场资金流",
+      "direction": "利多",
+      "keywords": [
+        "标普500",
+        "纳指",
+        "财报",
+        "科技股",
+        "风险偏好"
+      ],
+      "follow_up": "是",
+      "link": "https://in.marketscreener.com/news/s-p-500-nasdaq-end-higher-notch-weekly-gains-after-earnings-heavy-week-ce7f58d9de8af02d",
+      "notion_url": "https://www.notion.so/354f9553c570816a9736f868eea9f955"
+    },
+    {
+      "title": "WTI回落至100美元下方（地缘谈判消息扰动）",
+      "date": "2026-05-01",
+      "source": "MarketWatch",
+      "category": "国际金融",
+      "importance": "中",
+      "summary": "WTI跌回100美元下方",
+      "impact": "油价回落短期缓解通胀与企业成本压力，但在供应端扰动未解除前，油价波动仍可能反复冲击通胀预期与风险资产。",
+      "targets": "原油、通胀预期、航空运输/化工等成本敏感行业、利率预期",
+      "direction": "利多",
+      "keywords": [
+        "WTI",
+        "油价",
+        "通胀预期",
+        "地缘冲突",
+        "波动"
+      ],
+      "follow_up": "是",
+      "link": "https://www.marketwatch.com/livecoverage/s-p-500-nasdaq-record-closes-dow-jones-earnings-results-oil-climbs-little-sign-iran-war-ending/card/u-s-traded-oil-dips-back-below-100-a-barrel-eA5Pv9RrGoWVAzZlu7N5",
+      "notion_url": "https://www.notion.so/354f9553c57081b6a0a6c51724ccf2f1"
+    },
+    {
+      "title": "Barclays上调2026年布伦特原油预测至100美元/桶",
+      "date": "2026-05-01",
+      "source": "Reuters",
+      "category": "国际金融",
+      "importance": "中",
+      "summary": "巴克莱上修2026油价中枢",
+      "impact": "银行上修油价中枢反映供应扰动“更久更黏”，对全球通胀与央行政策预期构成上行风险，也提高信用与权益估值的折现压力。",
+      "targets": "能源板块、全球通胀与利率预期、航运与化工链条",
+      "direction": "利空",
+      "keywords": [
+        "Brent",
+        "Barclays",
+        "霍尔木兹",
+        "供给扰动",
+        "通胀"
+      ],
+      "follow_up": "是",
+      "link": "https://za.investing.com/news/commodities-news/barclays-lifts-2026-brent-forecast-to-100-on-prolonged-hormuz-disruption-4248704",
+      "notion_url": "https://www.notion.so/354f9553c57081bca13eca696fb6941d"
+    },
+    {
+      "title": "Apple公布2026财年第二季度业绩：营收1112亿美元、服务收入创新高",
+      "date": "2026-04-30",
+      "source": "Apple",
+      "category": "重点公司",
+      "importance": "中",
+      "summary": "Apple二季度业绩强于预期",
+      "impact": "大型科技龙头业绩与指引改善有助于支撑科技板块估值与指数权重贡献；同时其供应链与消费电子需求对相关产业链景气具有指示意义。",
+      "targets": "Apple及其供应链、纳指/科技板块情绪、消费电子产业链",
+      "direction": "利多",
+      "keywords": [
+        "Apple",
+        "财报",
+        "iPhone",
+        "Services",
+        "回购"
+      ],
+      "follow_up": "是",
+      "link": "https://www.apple.com.cn/newsroom/2026/04/apple-reports-second-quarter-results/",
+      "notion_url": "https://www.notion.so/354f9553c5708110a282c9be1860192c"
+    }
+  ]
+}
