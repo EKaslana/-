@@ -2,114 +2,135 @@
   "date": "2026-05-02",
   "edition": "international",
   "title": "金融日报 2026-05-02（国际版）",
-  "summary": "美联储按兵不动且投票分歧扩大；美股刷新高点，油价高位波动压制通胀预期。",
+  "summary": "美联储与欧洲央行在能源与通胀不确定性下均维持利率不变；欧元区GDP与通胀初值共同影响欧洲利率预期；美国监管执法取向与官员表态强化短端定价对数据与前瞻指引的敏感度。",
   "notion_url": "https://www.notion.so/354f9553c57081e6b846dc7ead6539d7",
-  "reportMarkdown": "## 今日重点\n- 【宏观经济】美联储维持联邦基金利率目标区间3.5%-3.75%，强调能源价格推升通胀、地缘冲突带来不确定性；政策分歧加大，市场对降息路径的确定性下降。\n- 【资本市场】标普500与纳指在5月1日收盘再创历史新高，科技股（以Apple为代表的财报驱动）继续成为风险偏好主线。\n- 【国际金融】原油在高波动下回落：WTI一度跌回100美元下方，但霍尔木兹海峡扰动仍使2026年油价中枢上修风险上行。\n\n## 宏观与政策\n- 美联储声明与实施说明显示：政策利率区间维持不变，同时继续通过操作框架维持资金市场稳定；高油价与不确定性使“数据依赖”权重上升。\n\n## 市场动态\n- 美股风险偏好延续，指数创新高；同时油价回落与美债收益率变化共同影响成长股估值弹性。\n\n## 金融机构与监管\n-（本期未新增高信号全球监管执法条目；如需可扩展到SEC当周执法与大型银行风险事件。）\n\n## 风险提示\n- 油价与地缘冲突对通胀的二次传导，可能改变主要央行政策预期并放大跨资产波动。\n\n## 后续观察点\n1. 下一份美国就业与通胀数据对政策路径的再定价。\n2. 霍尔木兹海峡航运与供给扰动持续性，以及油价对信用利差/权益估值的传导。\n3. 大型科技公司财报与指引能否继续支撑指数上行。\n\n## JSON\n（以下为结构化事件数组，供 Notion 与数据文件使用）\n",
+  "reportMarkdown": "## 今日重点\n- 【宏观经济｜高｜中性】美联储4月会议维持利率不变：利率路径继续取决于通胀与就业，全球风险资产对数据与官员表态的敏感度上升。\n- 【宏观经济｜高｜中性】欧洲央行维持关键利率不变：通胀回落的持续性与能源扰动将主导欧元区利率预期。\n- 【宏观经济｜中｜利空】Eurostat欧元区Q1 GDP初值偏弱：增长动能不足与通胀路径交织，市场更容易出现“增长/通胀分歧”交易。\n\n## 宏观与政策\n- 【宏观经济｜中｜中性】Eurostat欧元区4月HICP通胀初值：将直接影响欧央行政策节奏与欧元区期限利差。\n- 【监管政策｜中｜中性】SEC发布2025财年执法结果：金融机构与跨境发行合规风险溢价的边际变化需关注。\n\n## 市场动态\n- 推断：美元与欧元区利率预期在数据与官员表态驱动下波动更大，股债相关性可能阶段性回升。\n\n## 金融机构与监管\n- 【宏观经济｜中｜中性】联储官员讲话（政策分歧信号）：短端利率与风险资产对前瞻指引更敏感。\n\n## 风险提示\n- 若能源与地缘扰动导致通胀下行受阻，市场可能再定价“高利率更久”。\n- 欧元区增长与通胀若同时走弱，信用利差与银行风险偏好可能快速收缩。\n\n## 后续观察点\n1. 美国通胀与就业数据的边际变化及其对降息/维持的定价影响。\n2. 欧元区通胀初值与后续修订是否确认趋势。\n3. 官员表态是否进一步强化政策分歧（对短端与美元最敏感）。\n\n## JSON\n(由系统写入：结构化事件数组；此章节仅用于Notion与数据文件，HTML不得展示)\n",
   "events": [
     {
-      "title": "美联储维持政策利率区间3.5%-3.75%（投票分歧扩大）",
+      "title": "美联储FOMC维持联邦基金利率目标区间不变",
       "date": "2026-04-29",
       "source": "Federal Reserve",
       "category": "宏观经济",
       "importance": "高",
-      "summary": "FOMC按兵不动且分歧扩大",
-      "impact": "利率维持不变但内部偏好分化，叠加能源价格推升通胀与地缘不确定性，提升政策路径与风险资产定价的不确定性。",
-      "targets": "美元利率曲线、全球风险资产估值、能源与通胀敏感资产",
+      "summary": "FOMC按兵不动，强调通胀与不确定性",
+      "impact": "政策利率维持不变意味着市场定价更依赖后续通胀与就业数据；在能源与地缘扰动背景下，利率路径不确定性会通过美元流动性与风险偏好影响全球资产定价。",
+      "targets": "美元指数、美国国债收益率曲线、全球风险资产、资金利差",
       "direction": "中性",
       "keywords": [
         "FOMC",
+        "Fed",
         "利率",
         "通胀",
-        "能源价格",
-        "政策分歧"
+        "流动性"
       ],
       "follow_up": "是",
       "link": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260429a.htm",
-      "notion_url": "https://www.notion.so/354f9553c57081f4a33dc2a2f880cdb2"
+      "notion_url": "https://www.notion.so/354f9553c5708149a02def1d0a33445d"
     },
     {
-      "title": "标普500与纳指创历史新高（5月1日收盘）",
-      "date": "2026-05-01",
-      "source": "Reuters",
-      "category": "资本市场",
-      "importance": "中",
-      "summary": "美股创新高延续周度涨势",
-      "impact": "风险偏好延续并压缩风险溢价；若油价回落与盈利韧性持续，成长股估值弹性仍占优，但高位更依赖后续数据与盈利兑现。",
-      "targets": "美股指数、科技板块、全球风险偏好与跨市场资金流",
-      "direction": "利多",
+      "title": "欧洲央行维持关键利率不变并更新政策沟通",
+      "date": "2026-04-30",
+      "source": "European Central Bank",
+      "category": "宏观经济",
+      "importance": "高",
+      "summary": "ECB维持利率，关注通胀回落路径",
+      "impact": "欧央行维持利率不变使欧元区利率预期更多取决于通胀回落的持续性；在能源价格扰动下，欧洲期限利差与欧元汇率波动可能上升。",
+      "targets": "欧元、欧元区国债收益率曲线、欧洲银行股、信用利差",
+      "direction": "中性",
       "keywords": [
-        "标普500",
-        "纳指",
-        "财报",
-        "科技股",
+        "ECB",
+        "欧元区",
+        "政策利率",
+        "通胀",
+        "欧元"
+      ],
+      "follow_up": "是",
+      "link": "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.mp260430~7b9a5e2b2f.en.html",
+      "notion_url": "https://www.notion.so/354f9553c57081af843fe06d1e0f390d"
+    },
+    {
+      "title": "欧元区2026年一季度GDP初值发布（Eurostat）",
+      "date": "2026-04-30",
+      "source": "Eurostat",
+      "category": "宏观经济",
+      "importance": "中",
+      "summary": "欧元区Q1 GDP初值偏弱，增长动能不足",
+      "impact": "增长初值偏弱将影响欧央行政策路径与欧洲企业盈利预期；若增长与通胀出现背离，资产定价的分歧交易可能加大。",
+      "targets": "欧元区增长预期、欧洲股指、欧债期限利差",
+      "direction": "利空",
+      "keywords": [
+        "Eurostat",
+        "GDP",
+        "欧元区",
+        "增长",
+        "宏观"
+      ],
+      "follow_up": "是",
+      "link": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-30042026-ap",
+      "notion_url": "https://www.notion.so/354f9553c5708177ade6e7308c95e214"
+    },
+    {
+      "title": "欧元区2026年4月HICP通胀flash estimate（Eurostat）",
+      "date": "2026-04-30",
+      "source": "Eurostat",
+      "category": "宏观经济",
+      "importance": "中",
+      "summary": "欧元区4月通胀初值影响降息预期",
+      "impact": "通胀初值直接影响欧央行后续政策节奏与市场降息预期，对欧元、欧债和欧洲风险资产折现率具有一阶影响。",
+      "targets": "欧元、欧元区利率期货、欧债收益率、欧洲风险资产折现率",
+      "direction": "中性",
+      "keywords": [
+        "HICP",
+        "通胀",
+        "Eurostat",
+        "ECB",
+        "利率预期"
+      ],
+      "follow_up": "是",
+      "link": "https://ec.europa.eu/eurostat/web/products-euro-indicators/w/2-30042026-bp",
+      "notion_url": "https://www.notion.so/354f9553c57081019bb1cd95ef7d5d90"
+    },
+    {
+      "title": "美国SEC发布2025财年执法结果并强调投资者保护",
+      "date": "2026-04-07",
+      "source": "U.S. Securities and Exchange Commission",
+      "category": "监管政策",
+      "importance": "中",
+      "summary": "SEC执法节奏与问责取向影响合规成本",
+      "impact": "执法取向与资源配置变化会影响金融机构与上市公司合规投入、跨境业务风险与诉讼预期；对中概股、券商与资管的合规风险溢价有边际影响。",
+      "targets": "上市公司与中介机构合规成本、跨境发行与披露、金融机构监管风险溢价",
+      "direction": "中性",
+      "keywords": [
+        "SEC",
+        "执法",
+        "合规",
+        "投资者保护",
+        "跨境"
+      ],
+      "follow_up": "否",
+      "link": "https://www.sec.gov/newsroom/press-releases/2026-34",
+      "notion_url": "https://www.notion.so/354f9553c5708199a1a4d78a24d024ba"
+    },
+    {
+      "title": "克利夫兰联储主席就货币政策取向发表最新讲话（政策分歧信号）",
+      "date": "2026-05-01",
+      "source": "Federal Reserve Bank of Cleveland",
+      "category": "宏观经济",
+      "importance": "中",
+      "summary": "官员表态强化“更久更高/谨慎调整”的定价",
+      "impact": "公开表态可能改变市场对未来会议路径的预期，尤其在FOMC内部出现分歧时；会放大短端利率与风险资产的敏感度。",
+      "targets": "美债短端、利率期货、股债相关性、美元",
+      "direction": "中性",
+      "keywords": [
+        "Fed讲话",
+        "前瞻指引",
+        "短端利率",
+        "分歧",
         "风险偏好"
       ],
       "follow_up": "是",
-      "link": "https://in.marketscreener.com/news/s-p-500-nasdaq-end-higher-notch-weekly-gains-after-earnings-heavy-week-ce7f58d9de8af02d",
-      "notion_url": "https://www.notion.so/354f9553c570816a9736f868eea9f955"
-    },
-    {
-      "title": "WTI回落至100美元下方（地缘谈判消息扰动）",
-      "date": "2026-05-01",
-      "source": "MarketWatch",
-      "category": "国际金融",
-      "importance": "中",
-      "summary": "WTI跌回100美元下方",
-      "impact": "油价回落短期缓解通胀与企业成本压力，但在供应端扰动未解除前，油价波动仍可能反复冲击通胀预期与风险资产。",
-      "targets": "原油、通胀预期、航空运输/化工等成本敏感行业、利率预期",
-      "direction": "利多",
-      "keywords": [
-        "WTI",
-        "油价",
-        "通胀预期",
-        "地缘冲突",
-        "波动"
-      ],
-      "follow_up": "是",
-      "link": "https://www.marketwatch.com/livecoverage/s-p-500-nasdaq-record-closes-dow-jones-earnings-results-oil-climbs-little-sign-iran-war-ending/card/u-s-traded-oil-dips-back-below-100-a-barrel-eA5Pv9RrGoWVAzZlu7N5",
-      "notion_url": "https://www.notion.so/354f9553c57081b6a0a6c51724ccf2f1"
-    },
-    {
-      "title": "Barclays上调2026年布伦特原油预测至100美元/桶",
-      "date": "2026-05-01",
-      "source": "Reuters",
-      "category": "国际金融",
-      "importance": "中",
-      "summary": "巴克莱上修2026油价中枢",
-      "impact": "银行上修油价中枢反映供应扰动“更久更黏”，对全球通胀与央行政策预期构成上行风险，也提高信用与权益估值的折现压力。",
-      "targets": "能源板块、全球通胀与利率预期、航运与化工链条",
-      "direction": "利空",
-      "keywords": [
-        "Brent",
-        "Barclays",
-        "霍尔木兹",
-        "供给扰动",
-        "通胀"
-      ],
-      "follow_up": "是",
-      "link": "https://za.investing.com/news/commodities-news/barclays-lifts-2026-brent-forecast-to-100-on-prolonged-hormuz-disruption-4248704",
-      "notion_url": "https://www.notion.so/354f9553c57081bca13eca696fb6941d"
-    },
-    {
-      "title": "Apple公布2026财年第二季度业绩：营收1112亿美元、服务收入创新高",
-      "date": "2026-04-30",
-      "source": "Apple",
-      "category": "重点公司",
-      "importance": "中",
-      "summary": "Apple二季度业绩强于预期",
-      "impact": "大型科技龙头业绩与指引改善有助于支撑科技板块估值与指数权重贡献；同时其供应链与消费电子需求对相关产业链景气具有指示意义。",
-      "targets": "Apple及其供应链、纳指/科技板块情绪、消费电子产业链",
-      "direction": "利多",
-      "keywords": [
-        "Apple",
-        "财报",
-        "iPhone",
-        "Services",
-        "回购"
-      ],
-      "follow_up": "是",
-      "link": "https://www.apple.com.cn/newsroom/2026/04/apple-reports-second-quarter-results/",
-      "notion_url": "https://www.notion.so/354f9553c5708110a282c9be1860192c"
+      "link": "https://www.clevelandfed.org/collections/speeches",
+      "notion_url": "https://www.notion.so/354f9553c57081968552cac2de1ccbe5"
     }
   ]
 }
